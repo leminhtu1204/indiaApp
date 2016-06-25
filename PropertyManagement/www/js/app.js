@@ -1,6 +1,6 @@
-angular.module('App', ['ionic'])
+angular.module('belowval', ['ionic', 'belowval.login'])
 
-.config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider
             .state('home', {
@@ -18,17 +18,17 @@ angular.module('App', ['ionic'])
                 templateUrl: 'views/login/login.html'
             });
 
-  $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider.otherwise('/login');
 
-})
+    })
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
-})
+    .run(function ($ionicPlatform) {
+        $ionicPlatform.ready(function () {
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            }
+            if (window.StatusBar) {
+                StatusBar.styleDefault();
+            }
+        });
+    })
