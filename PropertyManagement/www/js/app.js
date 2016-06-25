@@ -1,4 +1,4 @@
-angular.module('belowval', ['ionic', 'belowval.login'])
+angular.module('Belowval', ['ionic', 'Belowval.Login'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
 

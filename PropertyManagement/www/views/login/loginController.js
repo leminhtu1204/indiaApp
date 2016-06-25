@@ -1,6 +1,6 @@
-﻿angular.module('belowval.login', [])
+﻿angular.module('Belowval.Login', ['Belowval.LoginService'])
 
-    .controller('loginController', function ($scope, $http, $state) {
+    .controller('loginController', function ($scope, $http, $state, UserLogin) {
         var url = 'http://underval.com/underval.com/engineermaster/api/api.php';
         var header = {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -17,4 +17,9 @@
                 }).error(function (err) {
             });
         }
+
+        // Test login-service
+        // UserLogin.login();
+        // UserLogin.register();
+
     });

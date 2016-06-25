@@ -1,4 +1,4 @@
-﻿angular.module('belowval.register', [])
+﻿angular.module('Belowval.Register', [])
 .controller('registerController', function ($scope, $state, $http) {
     var url = 'http://underval.com/underval.com/engineermaster/api/api.php';
     var header = {
