@@ -36,7 +36,7 @@
                         alertPopup.close();
                     }, 3000)
 
-                    alertPopup.then(function(res) {
+                    alertPopup.then(function() {
                         $state.go("login");
                     });
                 }

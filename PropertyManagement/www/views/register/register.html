@@ -1,16 +1,19 @@
 <ion-view view-title="Register User" name="register-view">
-  <ion-content class="padding">
-      <div class="list list-inset">
-          <label class="item item-input">
-              <input type="text" placeholder="Username" ng-model="registerData.user_login">
-          </label>
-          <label class="item item-input">
-              <input type="text" placeholder="Email" ng-model="registerData.email">
-          </label>
-          <label class="item item-input">
-              <input type="password" placeholder="Password" ng-model="registerData.password">
-          </label>
-          <button class="button button-block button-calm" ng-click="register()">Register</button>
-      </div>
-  </ion-content>
+    <ion-content class="padding">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Username" ng-model="registerData.user_login">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Email" ng-model="registerData.email">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="registerData.password">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Repeat password" ng-model="repeatpassword">
+            </label>
+            <button class="button button-block button-calm" ng-click="register(registerData)">Register</button>
+        </div>
+    </ion-content>
 </ion-view>
