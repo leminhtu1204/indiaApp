@@ -1,6 +1,6 @@
 ﻿angular.module('Belowval.Login', ['Belowval.LoginService'])
 
-    .controller('loginController', function ($scope, $state, UserLogin) {
+    .controller('loginController', function ($scope, $state, UserLogin, $ionicPopup, $timeout) {
         $scope.login = function (data) {
             data.method = 1;
             console.log(data);
@@ -14,7 +14,19 @@
                     $state.go("home");
                 } else {
                     console.log(response.data.msg)
-                    $state.go("login");
+
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Login failed!',
+                        template: response.data.msg
+                    });
+
+                    $timeout(function () {
+                        alertPopup.close();
+                    }, 3000)
+
+                    alertPopup.then(function(res) {
+                        $state.go("login");
+                    });
                 }
             });
 
