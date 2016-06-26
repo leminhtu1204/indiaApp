@@ -2,7 +2,9 @@
 
     .controller('loginController', function ($scope, $state, UserLogin, $ionicPopup, $timeout, $ionicLoading) {
         $scope.login = function (data) {
-            data.method = 1;
+            if (data != null) {
+                data.method = 1;
+            }
             console.log(data);
 
             $scope.show($ionicLoading);
@@ -13,6 +15,9 @@
 
                 if (response.status == '200') {
                     console.log("Login: Successfully!");
+
+                    window.localStorage.setItem("profile", JSON.stringify(response))
+                    console.log("Save profile to local storage")
 
                     $scope.hide($ionicLoading);
 

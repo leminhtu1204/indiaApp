@@ -1,10 +1,11 @@
-angular.module('Belowval', ['ionic', 'Belowval.Login'])
+angular.module('Belowval', ['ionic', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider
             .state('home', {
                 url: '/home',
+                controller: 'HomeController',
                 templateUrl: 'views/home/home.html'
             })
             .state('register', {
@@ -18,7 +19,7 @@ angular.module('Belowval', ['ionic', 'Belowval.Login'])
                 templateUrl: 'views/login/login.html'
             });
 
-        $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider.otherwise('/home');
 
     })
 
