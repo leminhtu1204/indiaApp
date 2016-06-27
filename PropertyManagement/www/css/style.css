@@ -1,0 +1,91 @@
+body.grade-a {
+    min-height: 100%;
+    background-image: url('../img/background_login.jpg');
+    background-size: 100% 100%;
+}
+html {
+    height: 100%;
+    font-family: Helvetica Neue, Helvetica, Arial;
+}
+.login-view{
+	float: left;
+    width: 100%;
+    height: 40%;
+    position: fixed;
+    top: 25%;
+    clear: both;
+	background-color: transparent;
+}
+.has-header{
+	top: 15px;
+}
+#mainbox {
+    width: 80%;
+    height: 100%;
+    float: top !important;
+    margin: auto;
+    background: rgba(255, 255, 255, .13);
+    border: 0px solid;
+    border-radius: 18px;
+}
+input#emailtextbox {
+    color: white !important;
+    background-color: transparent !important;
+    border: transparent;
+    margin-left: 10px !important;
+    margin-bottom: 3px !important;
+    font-size: 18px;
+    width: 70%;
+	padding-right: 0px !important;
+}
+input#emailtextbox::-webkit-input-placeholder {
+    color: white !important;
+}
+.item-input{
+	background-color: transparent !important;
+	border: none;
+	border-width: 1px;
+    border-color: white;
+    border-bottom-style: solid;
+	padding: 0px;
+	margin-bottom: 18px !important;
+}
+.list-inset
+{
+	background-color: transparent;
+    width: 70% !important;
+    margin: auto !important;
+}
+
+.submitbutton {
+    background-color: #a7c242 !important;
+    border: 0px solid !important;
+    border-radius: 18px !important;
+    width: 65% !important;
+    height: 40px !important;
+	min-height: 40px !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    margin-bottom: 5px !important;
+	margin: auto;
+}
+
+.registerbutton {
+    background-color: #FF0000 !important;
+    border: 0px solid !important;
+    border-radius: 18px !important;
+    width: 65% !important;
+    height: 40px !important;
+	min-height: 40px !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    margin-bottom: 5px !important;
+	margin: auto;
+}
+
+.bar-positive
+{
+	display:none;
+}

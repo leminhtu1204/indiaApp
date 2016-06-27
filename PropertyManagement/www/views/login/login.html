@@ -1,21 +1,29 @@
-<ion-view view-title="Login" name="login-view">
-    <ion-content class="padding">
-        <form name="loginForm" novalidate>
-            <div class="list list-inset">
-                <label class="item item-input">
-                    <input type="email" placeholder="Username" name="username" ng-model="data.user_login">
-                </label>
-                <label class="item item-input">
-                    <input type="password" placeholder="Password" ng-model="data.password">
-                </label>
-            </div>
+<ion-view view-title="Login" name="login-view" class="login-view">
+    <div id="mainbox">
+        <ion-content class="padding">
+            <form name="loginForm" novalidate>
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <img src="img/email-icon.png" width="25" height="25">
+                        <input type="email" placeholder="Username" name="username" ng-model="data.user_login">
+                    </label>
+                    <label class="item item-input">
+                        <img src="img/password-icon.png" width="25" height="25">
+                        <input type="password" placeholder="Password" ng-model="data.password">
+                    </label>
+                </div>
 
-            <div class="padding">
-                <p ng-show="loginForm.username.$invalid && !loginForm.username.$pristine">* Username must be an email address</p>
-            </div>
+                <button class="button button-block button-positive submitbutton" ng-disabled="loginForm.$invalid"
+                        ng-click="login(data)">LOGIN
+                </button>
 
-            <button class="button button-block button-positive" ng-disabled="loginForm.$invalid" ng-click="login(data)">Login</button>
+                <div class="padding">
+                    <p ng-show="loginForm.username.$invalid && !loginForm.username.$pristine">* Username must be an
+                        email address</p>
+                </div>
+            </form>
             <a href="#/register">register new user</a>
-        </form>
-    </ion-content>
+
+        </ion-content>
+    </div>
 </ion-view>
