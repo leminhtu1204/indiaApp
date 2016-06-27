@@ -5,11 +5,11 @@
                 <div class="list list-inset">
                     <label class="item item-input">
                         <img src="img/email-icon.png" width="25" height="25">
-                        <input type="email" placeholder="Username" name="username" ng-model="data.user_login">
+                        <input class="emailtextbox" type="email" placeholder="Input your email..." name="username" ng-model="data.user_login">
                     </label>
                     <label class="item item-input">
                         <img src="img/password-icon.png" width="25" height="25">
-                        <input type="password" placeholder="Password" ng-model="data.password">
+                        <input class="emailtextbox" type="password" placeholder="Input your password..." ng-model="data.password">
                     </label>
                 </div>
 
@@ -17,13 +17,22 @@
                         ng-click="login(data)">LOGIN
                 </button>
 
-                <div class="padding">
-                    <p ng-show="loginForm.username.$invalid && !loginForm.username.$pristine">* Username must be an
-                        email address</p>
+                <div class="emailerror">
+                    <p ng-show="loginForm.username.$invalid && !loginForm.username.$pristine">
+					* Username must be an email address
+					</p>
                 </div>
             </form>
-            <a href="#/register">register new user</a>
+            
 
         </ion-content>
+		<div class="lastrow">
+				<div class="register">
+					<a href="#/register" class='register'>REGISTER</a>
+				</div>
+				<div class="forgotpass">
+					<a href="#/forgotpass" class='forgotpass'>PASSWORD</a>
+				</div>
+			 </div>
     </div>
 </ion-view>

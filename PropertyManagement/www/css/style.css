@@ -28,18 +28,27 @@ html {
     border: 0px solid;
     border-radius: 18px;
 }
-input#emailtextbox {
+.emailerror{
+	color: red;
+	float: center;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 14px;
+}
+input.emailtextbox {
     color: white !important;
     background-color: transparent !important;
     border: transparent;
     margin-left: 10px !important;
     margin-bottom: 3px !important;
-    font-size: 18px;
+    font-size: 15px;
     width: 70%;
 	padding-right: 0px !important;
 }
-input#emailtextbox::-webkit-input-placeholder {
+input.emailtextbox::-webkit-input-placeholder {
     color: white !important;
+	font-size: 13px;
+	
 }
 .item-input{
 	background-color: transparent !important;
@@ -56,9 +65,44 @@ input#emailtextbox::-webkit-input-placeholder {
     width: 70% !important;
     margin: auto !important;
 }
+.lastrow
+{
+	position: absolute;
+    width: 90%;
+    margin-left: auto;
+    margin-top: 15px;
+    bottom: 8px;
+}
+.register
+{
+	color: white !important;
+	font-size: 18px;
+	margin-right: 5px;
+	float: right;
+}
+div.register
+{
+	width: 40%;
+	float: left;
+	position: relative !important;
+}
+div.forgotpass
+{
+	width: 40%;
+	float: left;
+	border-left: 1px solid;
+	position: relative !important;
+	padding-left: 5px;
+}
+.forgotpass
+{
+	color: white !important;
+	font-size: 18px;
+	margin-left: 5px;
+}
 
 .submitbutton {
-    background-color: #a7c242 !important;
+    background-color: #597423 !important;
     border: 0px solid !important;
     border-radius: 18px !important;
     width: 65% !important;
@@ -88,4 +132,8 @@ input#emailtextbox::-webkit-input-placeholder {
 .bar-positive
 {
 	display:none;
+}
+
+[nav-view-transition="ios"][nav-view-direction="forward"], [nav-view-transition="ios"][nav-view-direction="back"] {
+    background-color: transparent !important;
 }
