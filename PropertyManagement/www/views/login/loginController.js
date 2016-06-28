@@ -1,6 +1,16 @@
 ﻿angular.module('Belowval.Login', ['Belowval.LoginService'])
+    .run(function() {
+        console.log("Login module is loading ..")
+    })
 
     .controller('loginController', function ($scope, $state, UserLogin, $ionicPopup, $timeout, $ionicLoading) {
+        console.log("Login controller is loading..");
+
+        if (window.localStorage.getItem('profile') != undefined) {
+             console.log("Has been login")
+             $state.go('belowval.home');
+        }
+
         $scope.login = function (data) {
             if (data != null) {
                 data.method = 1;
@@ -21,7 +31,7 @@
 
                     $scope.hide($ionicLoading);
 
-                    $state.go("home");
+                    $state.go('belowval.home');
                 } else {
                     console.log(response.data.msg)
 
@@ -40,6 +50,23 @@
                         $state.go("login");
                     });
                 }
+            }, function(){
+                console.log('Unable to connect service!');
+
+                $scope.hide($ionicLoading);
+
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Login failed!',
+                    template: "Unable to connect service!"
+                });
+
+                $timeout(function () {
+                    alertPopup.close();
+                }, 3000)
+
+                alertPopup.then(function() {
+                    $state.go("login");
+                });
             });
 
         }

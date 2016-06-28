@@ -1,26 +1,35 @@
-angular.module('Belowval', ['ionic', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register'])
-
+angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login','Belowval.Home', 'Belowval.Register'])
     .config(function ($stateProvider, $urlRouterProvider) {
-
         $stateProvider
-            .state('home', {
+            .state('belowval', {
+                url: '/belowval',
+                abstract: true,
+                controller: 'BootstrapController',
+                templateUrl: 'views/bootstrap/profile-menu.html'
+              })
+
+            .state('belowval.home', {
                 url: '/home',
-                controller: 'HomeController',
-                templateUrl: 'views/home/home.html'
+                views:{
+                    'menuContent': {
+                        controller: 'HomeController',
+                        templateUrl: 'views/home/home.html'
+                    }
+                }
             })
+
             .state('register', {
                 url: '/register',
                 controller: 'registerController',
                 templateUrl: 'views/register/register.html'
             })
+
             .state('login', {
                 url: '/login',
                 controller: "loginController",
                 templateUrl: 'views/login/login.html'
             });
-
-        $urlRouterProvider.otherwise('/home');
-
+        $urlRouterProvider.otherwise('/login');
     })
 
     .run(function ($ionicPlatform) {
