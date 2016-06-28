@@ -23,7 +23,7 @@
 
                     $scope.hide($ionicLoading);
 
-                    $state.go("home");
+                    $state.go('belowval.home');
                 } else {
                     console.log(response.data.msg)
 
