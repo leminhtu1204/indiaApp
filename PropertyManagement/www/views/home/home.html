@@ -4,6 +4,21 @@
     </ion-nav-buttons>-->
 
     <ion-content>
-        <h1>Home</h1>
+
+      <div class="list">
+          <div ng-repeat="home in homeData">
+              <div>{{home.Desription}}</div>
+              <a ng-repeat="item in home" 
+             href="#/{{item.id}}"
+             class="item item-thumbnail-left">
+
+              <img ng-src="{{ item.image }}">
+              <h2>{{ item.album }}</h2>
+              <h4>{{ item.artist }}</h4>
+          </a>
+          </div>
+
+      </div>
+
     </ion-content>
 </ion-view>
