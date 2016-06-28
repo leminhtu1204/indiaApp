@@ -1,7 +1,3 @@
-/**
- * Created by TrungTrinh on 6/25/16.
- */
-
 angular.module('Belowval.LoginService', [])
 
     .factory('UserLogin', function ($http) {
@@ -18,7 +14,7 @@ angular.module('Belowval.LoginService', [])
                         "password": "123456"
                     };*/
 
-                    console.log("login")
+                    console.log("login");
 
                     return $http.post(ws_end_point, user).then(function (response) {
                         console.log(response);
@@ -41,7 +37,9 @@ angular.module('Belowval.LoginService', [])
                         console.log(response);
                         return response;
                     });
-                }
+                },
+
+
             }
         }
     )
