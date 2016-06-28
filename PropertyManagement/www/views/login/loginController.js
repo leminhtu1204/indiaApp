@@ -50,6 +50,23 @@
                         $state.go("login");
                     });
                 }
+            }, function(response){
+                console.log('Unable to connect service!'  + response);
+
+                $scope.hide($ionicLoading);
+
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Login failed!',
+                    template: "Unable to connect service!"
+                });
+
+                $timeout(function () {
+                    alertPopup.close();
+                }, 3000)
+
+                alertPopup.then(function() {
+                    $state.go("login");
+                });
             });
 
         }
