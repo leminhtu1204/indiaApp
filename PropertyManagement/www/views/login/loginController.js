@@ -50,8 +50,8 @@
                         $state.go("login");
                     });
                 }
-            }, function(response){
-                console.log('Unable to connect service!'  + response);
+            }, function(){
+                console.log('Unable to connect service!');
 
                 $scope.hide($ionicLoading);
 
