@@ -4,7 +4,7 @@ angular.module('Belowval.LoginService', [])
             console.log("Load Belowval.LoginService - UserLogin factory");
 
 //            var ws_end_point = "api_test.php";
-            var ws_end_point = "http://underval.com/underval.com/engineermaster/api/api_test.php";
+            var ws_end_point = "http://underval.com/underval.com/engineermaster/api/api.php";
 
             console.log("Web service end point: " + ws_end_point);
 

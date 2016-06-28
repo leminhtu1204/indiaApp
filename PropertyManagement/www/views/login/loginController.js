@@ -3,13 +3,18 @@
         console.log("Login module is loading ..")
     })
 
-    .controller('loginController', function ($scope, $state, UserLogin, $ionicPopup, $timeout, $ionicLoading) {
+    .controller('loginController', function ($ionicHistory, $scope, $state, UserLogin, $ionicPopup, $timeout, $ionicLoading) {
         console.log("Login controller is loading..");
 
         if (window.localStorage.getItem('profile') != undefined) {
              console.log("Has been login")
              $state.go('belowval.home');
         }
+
+        $scope.$on("$ionicView.enter", function (scopes, states) {
+            $ionicHistory.clearHistory();
+            $ionicHistory.clearCache();
+        });
 
         $scope.login = function (data) {
             if (data != null) {
