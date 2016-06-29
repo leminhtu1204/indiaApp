@@ -4,21 +4,37 @@
     </ion-nav-buttons>-->
 
     <ion-content>
-
       <div class="list">
           <div ng-repeat="home in homeData">
               <div>{{home.Desription}}</div>
-              <a ng-repeat="item in home" 
-             href="#/{{item.id}}"
-             class="item item-thumbnail-left">
-
-              <img ng-src="{{ item.image }}">
-              <h2>{{ item.album }}</h2>
-              <h4>{{ item.artist }}</h4>
-          </a>
+              <a href="#" class="item item-thumbnail-left">
+                  <img ng-src="{{ home.detail_1._thumbnail_id }}">
+                  <h2>{{ home.detail_1.post_title }}</h2>
+                  <h2>Bathrooms: {{ home.detail_1.property_bathrooms }}</h2>
+                  <h2>Bedrooms: {{ home.detail_1.property_bedrooms }}</h2>
+                  <h4>Size: {{ home.detail_1.property_size }}</h4>
+                  <h4>Price: {{ home.detail_1.property_price }}</h4>
+                  <h4>Valuation: {{ home.detail_1.property_valuation }}</h4>
+              </a>
+              <a href="#" class="item item-thumbnail-left">
+                  <img ng-src="{{ home.detail_2._thumbnail_id }}">
+                <h2>{{ home.detail_2.post_title }}</h2>
+                  <h2>{{ home.detail_2.property_bathrooms }}</h2>
+                  <h2>{{ home.detail_2.property_bedrooms }}</h2>
+                  <h4>Size: {{ home.detail_2.property_size }}</h4>
+                  <h4>Price: {{ home.detail_2.property_price }}</h4>
+                  <h4>Valuation: {{ home.detail_2.property_valuation }}</h4>
+              </a>
+              <a href="#" class="item item-thumbnail-left">
+                  <img ng-src="{{ home.detail_3._thumbnail_id }}">
+                  <h2>{{ home.detail_3.post_title }}</h2>
+                  <h2>Bathrooms: {{ home.detail_3.property_bathrooms }}</h2>
+                  <h2>Bedrooms: {{ home.detail_3.property_bedrooms }}</h2>
+                  <h4>Size: {{ home.detail_3.property_size }}</h4>
+                  <h4>Price: {{ home.detail_3.property_price }}</h4>
+                  <h4>Valuation: {{ home.detail_3.property_valuation }}</h4>
+              </a>
           </div>
-
       </div>
-
     </ion-content>
 </ion-view>
