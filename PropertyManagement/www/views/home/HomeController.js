@@ -1,11 +1,21 @@
-angular.module('Belowval.Home', [])
+angular.module('Belowval.Home', []).controller('HomeController', function ($scope, $state, $http) {
 
-    .controller('HomeController', function ($scope, $state) {
-        console.log("Home Controller is loading..")
+    ws_end_point = "http://underval.com/underval.com/engineermaster/api/api.php";
+    $scope.homeData = [];
+    $scope.init = function () {
+        $http.post(ws_end_point, { "method": 3 }).success(function (data) {
+            for (var item in data) {
+                $scope.homeData.push(data[item]);
+            }
 
-        /*$scope.logout = function () {
-            window.localStorage.removeItem('profile')
-            console.log("Logout - Remove profile")
-            $state.go('login');
-        }*/
-    });
+        }).error(function () {
+
+        });
+    };
+
+    if (window.localStorage.getItem('profile') != undefined) {
+        $scope.init();
+    } else {
+        $state.go('login');
+    }
+});

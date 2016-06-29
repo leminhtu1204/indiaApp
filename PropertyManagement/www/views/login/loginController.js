@@ -3,13 +3,18 @@
         console.log("Login module is loading ..")
     })
 
-    .controller('loginController', function ($scope, $state, UserLogin, $ionicPopup, $timeout, $ionicLoading) {
+    .controller('loginController', function ($ionicHistory, $scope, $state, UserLogin, $ionicPopup, $timeout, $ionicLoading) {
         console.log("Login controller is loading..");
 
         if (window.localStorage.getItem('profile') != undefined) {
              console.log("Has been login")
              $state.go('belowval.home');
         }
+
+        $scope.$on("$ionicView.enter", function (scopes, states) {
+            $ionicHistory.clearHistory();
+            $ionicHistory.clearCache();
+        });
 
         $scope.login = function (data) {
             if (data != null) {
@@ -50,6 +55,23 @@
                         $state.go("login");
                     });
                 }
+            }, function(){
+                console.log('Unable to connect service!');
+
+                $scope.hide($ionicLoading);
+
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Login failed!',
+                    template: "Unable to connect service!"
+                });
+
+                $timeout(function () {
+                    alertPopup.close();
+                }, 3000)
+
+                alertPopup.then(function() {
+                    $state.go("login");
+                });
             });
 
         }

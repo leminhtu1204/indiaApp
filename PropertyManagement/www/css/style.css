@@ -135,3 +135,12 @@ div.forgotpass
 [nav-view-transition="ios"][nav-view-direction="forward"], [nav-view-transition="ios"][nav-view-direction="back"] {
     background-color: transparent !important;
 }
+
+.my-card .item.item-image{
+  width: 100vw;
+  margin-left: -10px;
+}
+
+.my-card.card{
+  overflow: visible;
+}

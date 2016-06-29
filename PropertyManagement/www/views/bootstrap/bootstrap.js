@@ -3,12 +3,12 @@ angular.module('Belowval.Bootstrap', [])
         console.log("Bootstrap module is loading..")
     })
 
-    .controller('BootstrapController', function ($scope, $state) {
+    .controller('BootstrapController', function ($scope, $state, $ionicHistory) {
         console.log("Loading bootstrap controller");
 
         $scope.logout = function () {
-                    window.localStorage.removeItem('profile')
-                    console.log("Logout - Remove profile")
+            window.localStorage.removeItem('profile');
+            console.log("Logout - Remove profile");
                     $state.go('login');
                 }
     });

@@ -1,13 +1,12 @@
-/**
- * Created by TrungTrinh on 6/25/16.
- */
-
 angular.module('Belowval.LoginService', [])
 
     .factory('UserLogin', function ($http) {
             console.log("Load Belowval.LoginService - UserLogin factory");
 
+//            var ws_end_point = "api_test.php";
             var ws_end_point = "http://underval.com/underval.com/engineermaster/api/api.php";
+
+            console.log("Web service end point: " + ws_end_point);
 
             return {
                 login: function (user) {
@@ -18,7 +17,7 @@ angular.module('Belowval.LoginService', [])
                         "password": "123456"
                     };*/
 
-                    console.log("login")
+                    console.log("login");
 
                     return $http.post(ws_end_point, user).then(function (response) {
                         console.log(response);
@@ -41,7 +40,9 @@ angular.module('Belowval.LoginService', [])
                         console.log(response);
                         return response;
                     });
-                }
+                },
+
+
             }
         }
     )
