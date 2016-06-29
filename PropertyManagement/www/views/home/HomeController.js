@@ -13,6 +13,10 @@ angular.module('Belowval.Home', []).controller('HomeController', function ($scop
         });
     };
 
+    $scope.countPercent = function(a, b) {
+        return Math.round((a - b) / a * 100);
+    };
+
     $scope.formatNumber = function(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     };

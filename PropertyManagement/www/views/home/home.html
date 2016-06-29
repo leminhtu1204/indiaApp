@@ -16,6 +16,7 @@
                       <h4>Size: {{ formatNumber(home.detail_1.property_size) }}</h4>
                       <h4>Price: {{ formatNumber(home.detail_1.property_price) }}</h4>
                       <h4>Valuation: {{ formatNumber(home.detail_1.property_valuation) }}</h4>
+                      <h4>Sale off: {{ countPercent(home.detail_1.property_valuation, home.detail_1.property_price) }} %</h4>
                   </div>
               </a>
              <a href="#" class="list card my-card remove-underscore">
@@ -27,6 +28,7 @@
                       <h4>Size: {{ formatNumber(home.detail_2.property_size) }}</h4>
                       <h4>Price: {{ formatNumber(home.detail_2.property_price) }}</h4>
                       <h4>Valuation: {{ formatNumber(home.detail_2.property_valuation) }}</h4>
+                       <h4>Sale off: {{ countPercent(home.detail_2.property_valuation, home.detail_2.property_price) }} %</h4>
                   </div>
               </a>
               <a href="#" class="list card my-card remove-underscore">
@@ -35,9 +37,10 @@
                       <h2>{{ home.detail_3.post_title }}</h2>
                       <h2>{{ home.detail_3.property_bathrooms }}</h2>
                       <h2>{{ home.detail_3.property_bedrooms }}</h2>
-                    <h4>Size: {{ formatNumber(home.detail_3.property_size) }}</h4>
+                      <h4>Size: {{ formatNumber(home.detail_3.property_size) }}</h4>
                       <h4>Price: {{ formatNumber(home.detail_3.property_price) }}</h4>
                       <h4>Valuation: {{ formatNumber(home.detail_3.property_valuation) }}</h4>
+                      <h4>Sale off: {{ countPercent(home.detail_3.property_valuation, home.detail_3.property_price) }} %</h4>
                   </div>
               </a>
           </div>
