@@ -1,4 +1,4 @@
-angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login','Belowval.Home', 'Belowval.Register'])
+angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register', 'Belowval.PropertyDetail'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('belowval', {
@@ -17,7 +17,15 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login','Bel
                     }
                 }
             })
-
+            .state('belowval.detail', {
+                url: '/detail/:id',
+                views: {
+                    'menuContent': {
+                        controller: 'PropertyDetailController',
+                        templateUrl: 'views/property/propertyDetail.html'
+                    }
+                }
+            })
             .state('register', {
                 url: '/register',
                 controller: 'registerController',
