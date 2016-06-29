@@ -13,6 +13,10 @@ angular.module('Belowval.Home', []).controller('HomeController', function ($scop
         });
     };
 
+    $scope.formatNumber = function(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    };
+
     if (window.localStorage.getItem('profile') != undefined) {
         $scope.init();
     } else {
