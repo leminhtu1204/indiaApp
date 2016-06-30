@@ -11,11 +11,11 @@ angular.module('Belowval.LoginService', [])
             return {
                 login: function (user) {
 
-/*                    var user_sample = {
-                        "method": "1",
-                        "user_login": "ttt@gmail.com",
-                        "password": "123456"
-                    };*/
+                    /*                    var user_sample = {
+                     "method": "1",
+                     "user_login": "ttt@gmail.com",
+                     "password": "123456"
+                     };*/
 
                     console.log("login");
 
@@ -28,13 +28,13 @@ angular.module('Belowval.LoginService', [])
                 register: function (user) {
                     console.log("register");
 
-/*
-                    var user_sample = {
-                        "method": "2",
-                        "user_login": "t3@gmail.com",
-                        "password": "123456",
-                        "email": "t3@gmail.com"};
-*/
+                    /*
+                     var user_sample = {
+                     "method": "2",
+                     "user_login": "t3@gmail.com",
+                     "password": "123456",
+                     "email": "t3@gmail.com"};
+                     */
 
                     return $http.post(ws_end_point, user).then(function (response) {
                         console.log(response);
@@ -42,7 +42,24 @@ angular.module('Belowval.LoginService', [])
                     });
                 },
 
+                changePassword: function (data) {
+                    /*
+                     var data_sample = {
+                     "method": "4a",
+                     "id": "1234",
+                     "oldpassword": "123456",
+                     "newpassword": "65312"};
+                     */
+                    
 
+                    return $http.post(ws_end_point, data).then(function (response) {
+                        console.log(response);
+                        return response;
+                    }, function (response) {
+                        console.log(response);
+                        return response;
+                    });
+                }
             }
         }
     )
