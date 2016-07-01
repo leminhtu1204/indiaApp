@@ -18,6 +18,10 @@ angular.module('Belowval.Home', []).controller('HomeController', function ($scop
         return 0;
     };
 
+    $scope.redirectToDetail = function(id) {
+        $state.go('belowval.detail', {"id":id});
+    };
+
     $scope.countPercent = function (a, b) {
         if (!!a && !!b) {
             return Math.round((a - b) / a * 100);
