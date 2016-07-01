@@ -7,7 +7,7 @@
         <div class="list">
             <div ng-repeat="home in homeData">
                 <div><h3>{{home.desription}}</h3></div>
-                <div ng-repeat="property in home" class="list card my-card remove-underscore">
+                <div ng-repeat="property in home.listproperty" class="list card my-card remove-underscore">
                     <a href="/home/{{property.id}}"><img class="item item-image" ng-src="{{ property._thumbnail_id }}"></a>
                     <div class="item">
                         <h2>{{ property.post_title }}</h2>
@@ -19,7 +19,7 @@
                         <h4>Sale off: {{ countPercent(property.property_valuation, property.property_price) }} %</h4>
                     </div>
                 </div>
-                <a class="remove-underscore" href="#">View More</a>
+                <a class="remove-underscore" href="#/{{home.id}}">View More</a>
             </div>
         </div>
         
