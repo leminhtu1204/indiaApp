@@ -11,6 +11,13 @@ angular.module('Belowval.Home', []).controller('HomeController', function ($scop
         });
     };
 
+    $scope.getOnlyNumber = function (string) {
+        if (!!string) {
+            return string.split(" ")[0];
+        }
+        return 0;
+    };
+
     $scope.countPercent = function (a, b) {
         if (!!a && !!b) {
             return Math.round((a - b) / a * 100);

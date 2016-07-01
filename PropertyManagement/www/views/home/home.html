@@ -8,18 +8,18 @@
             <div ng-repeat="home in homeData">
                 <div><h3>{{home.desription}}</h3></div>
                 <div ng-repeat="property in home.listproperty" class="list card my-card remove-underscore">
-                    <a href="/home/{{property.id}}"><img class="item item-image" ng-src="{{ property._thumbnail_id }}"></a>
+                    <a href="#/detail/{{property.id}}"><img class="item item-image" ng-src="{{ property._thumbnail_id }}"></a>
                     <div class="item">
                         <h2>{{ property.post_title }}</h2>
-                        <h2>{{ property.property_bathrooms }}</h2>
-                        <h2>{{ property.property_bedrooms }}</h2>
+                        <h2>{{ getOnlyNumber(property.property_bathrooms) }}</h2>
+                        <h2>{{ getOnlyNumber(property.property_bedrooms) }}</h2>
                         <h4>Size: {{ formatNumber(property.property_size) }}</h4>
                         <h4>Price: {{ formatNumber(property.property_price) }}</h4>
                         <h4>Valuation: {{ formatNumber(property.property_valuation) }}</h4>
                         <h4>Sale off: {{ countPercent(property.property_valuation, property.property_price) }} %</h4>
                     </div>
                 </div>
-                <a class="remove-underscore" href="#/{{home.id}}">View More</a>
+                <a class="remove-underscore" href="#/home/{{home.id}}">View More</a>
             </div>
         </div>
         
