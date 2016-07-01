@@ -4,12 +4,23 @@
     </ion-nav-buttons>-->
 
     <ion-content>
-        <div class="list">
-            Detail page
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide ng-repeat="image in property.images">
+                <img ng-src="{{image}}" style="width:300px;height:300px;margin:auto;display:block" >
+            </ion-slide>
+        </ion-slide-box>
+        <div class="item">
+            <h2>{{ property.post_title }}</h2>
+            <h2>{{ property.property_address }}</h2>
+            <h2>{{ getOnlyNumber(property.property_bathrooms) }}</h2>
+            <h2>{{ getOnlyNumber(property.property_bedrooms) }}</h2>
+            <h4>Country: {{ property.property_country }}</h4>
+            <h4>Longitude: {{ property.property_longitude }}</h4>
+            <h4>Zip: {{ property.property_zip }}</h4>
+            <h4>Price: {{ formatNumber(property.property_price) }}</h4>
+            <h4>Size: {{ formatNumber(property.property_size) }}</h4>
+            <h4>Valuation: {{ formatNumber(property.property_valuation) }}</h4>
         </div>
-        
-        <div><h3><a class="remove-underscore" href="#">Search</a></h3></div>
-        <div><h3><a class="remove-underscore" href="#">Saved Search</a></h3></div>
-        <div><h3><a class="remove-underscore" href="#">Notification</a></h3></div>
+        <p ng-bind-html="property.post_content"></p>
     </ion-content>
 </ion-view>
