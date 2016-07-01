@@ -144,3 +144,7 @@ div.forgotpass
 .my-card.card{
   overflow: visible;
 }
+
+.remove-underscore{
+  text-decoration: none;
+}

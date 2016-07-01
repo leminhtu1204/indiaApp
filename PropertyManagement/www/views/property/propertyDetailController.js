@@ -1,4 +1,4 @@
-angular.module('Belowval.Home', []).controller('HomeController', function ($scope, $state, $http) {
+angular.module('Belowval.PropertyDetail', []).controller('PropertyDetailController', function ($scope, $state, $http) {
 
     ws_end_point = "http://underval.com/underval.com/engineermaster/api/api.php";
     $scope.homeData = [];
