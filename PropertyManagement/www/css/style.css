@@ -318,3 +318,185 @@ div.registerbutton button {
 	padding-top:35px !important;
 	font-size: 15px !important;
 }
+.hadhead{
+	top: 55px;
+}
+h3.grouptitle
+{
+	margin-left: 15px !important;
+	display: inline-block;
+    margin-bottom: 0;
+    line-height: 38px;
+	font-size: 23px !important;
+	color: #434a54;
+	font-family: 'Open Sans',sans-serif;
+	-webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+img.propertyimage{
+	
+	height: 250px !important;
+	width: 100% !important;
+	margin-left:0px !important;
+}
+div.propertydetail{
+	width: 100% !important;
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+div.auction_sticker{
+	position: absolute;
+    left: 0;
+    top: 0;
+    padding: 5px 10px;
+    background-color: #e59400;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    width: 50% !important;
+    text-align: center;
+    height: 29px;
+    line-height: 20px;
+	z-index: 1000;
+	min-width: 200px !important;
+}
+div.red-bg{
+	background-color: #ed2939 !important;
+}
+div.wrapperdetail
+{
+	position: relative !important;
+}
+div.propertyitemdetail{
+	margin-left: -0px;
+    /* margin-right: -15px !important; */
+	position: absolute;
+    bottom: 0px !important;
+    z-index: 1000;
+    max-height: 76px;
+    overflow: visible;
+    width: 100%;
+    max-width: none;
+	background-color: transparent !important;
+	padding: 0px !important;
+}
+div.listoverlay
+{
+	height: 71px;
+	position: absolute;
+    width: 100%;
+    height: 76px;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+.auction_sticker_second {
+	position: absolute;
+    padding: 3.5px 10px;
+    top: -21px;
+    background-color: rgba(0,0,163,0.75);
+    width: auto;
+    height: auto;
+    font-size: 11px;
+    line-height: 14px;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	
+}
+h4.homepostitle
+{
+	color: #99ca3c !important;
+	display: block;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+	text-decoration: none;
+	font-family: 'Open Sans',sans-serif;
+	-webkit-transition: color 0.4s linear;
+	border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+	font-size: 20px !important;
+	margin-bottom: 10px !important;
+	min-height: 23px !important;
+    margin-top: 5px !important;
+	/* min-width: 324px; */
+	margin-left: 15px !important;
+}
+div.property_location
+{
+	float: left;
+	font-size: 13px;
+	color: #99a3b1;
+    line-height: 1.6em;
+	    padding-left: 3px;
+		margin: 1px 0px 4px 0px !important;
+}
+.infoaction
+{
+	font-size: 11px;
+	margin-right: 5px;
+    padding: 0 5px;
+    color: #fff;
+	background-color: #3c90be !important;
+	line-height: 1.6em;
+	font-family: 'Open Sans',sans-serif;
+}
+.inforoom
+{
+	font-size: 12px;
+	color: #fff !important;
+	margin-right: 5px;
+    display: inline-block;
+	background-image: url('../img/icon_bed1.png');
+    height: 17px;
+    background-repeat: no-repeat;
+    background-position: 0px 4px;
+	padding-left: 23px;
+	font-family: 'Open Sans',sans-serif;
+}
+.infobath
+{
+	font-size: 12px;
+	color: #fff !important;
+	margin-right: 5px;
+    display: inline-block;
+	background-image: url('../img/icon_bath1.png');
+    height: 17px;
+    background-repeat: no-repeat;
+    background-position: 0px 2px;
+	padding-left: 18px;
+	font-family: 'Open Sans',sans-serif;
+	font-weight: normal;
+}
+.infosize
+{
+	font-size: 12px;
+	color: #fff !important;
+	margin-right: 5px;
+    display: inline-block;
+	background-image: url('../img/icon-size1.png');
+    height: 17px;
+    background-repeat: no-repeat;
+    background-position: 0px 2px;
+	padding-left: 18px;
+	font-family: 'Open Sans',sans-serif;
+	font-weight: normal;
+}
+div.listing_price_area
+{
+	color: #99ca3c !important;
+	padding-right: 0;
+	float: right;
+	border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+	padding-right: 10px !important;
+    vertical-align: baseline;
+}

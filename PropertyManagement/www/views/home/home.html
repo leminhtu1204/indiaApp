@@ -3,28 +3,40 @@
         <button class="ion-arrow-left-c" ng-click="logout()">Logout</button>
     </ion-nav-buttons>-->
 
-    <ion-content>
+    <ion-content class="hadhead">
         <div class="list">
-            <div ng-repeat="home in homeData">
-                <div><h3>{{home.desription}}</h3></div>
-                <div ng-repeat="property in home.listproperty" class="list card my-card remove-underscore">
-                    <a ng-click="redirectToDetail({{property.id}})"><img class="item item-image" ng-src="{{ property._thumbnail_id }}"></a>
-                    <div class="item">
-                        <h2>{{ property.post_title }}</h2>
-                        <h2>{{ getOnlyNumber(property.property_bathrooms) }}</h2>
-                        <h2>{{ getOnlyNumber(property.property_bedrooms) }}</h2>
-                        <h4>Size: {{ formatNumber(property.property_size) }}</h4>
-                        <h4>Price: {{ formatNumber(property.property_price) }}</h4>
+            <div ng-repeat="home in homeData" class="rowgroup">
+                <div><h3 class="grouptitle">{{home.desription}}</h3></div>
+                <div ng-repeat="property in home.listproperty" class="list card my-card remove-underscore propertydetail">
+					<div class="wrapperdetail">
+						<a ng-click="redirectToDetail({{property.id}})">
+						<img class="item item-image propertyimage" ng-src="{{ property._thumbnail_id }}">
+						<div class="auction_sticker red-bg">Auction (Owner's Sale)</div>
+						</a>
+					</div>
+                    <div class="item propertyitemdetail">
+						<div class="listoverlay">
+							<div class="auction_sticker_second">Price is Only Indicative. Send Your Bid to Agent</div>
+						</div>
+                        <h4 class="homepostitle">{{ property.post_title }}</h4>
+						<div class="property_location">
+							<span class="infoaction sale-label">Sale</span>
+							<span class="inforoom">{{ getOnlyNumber(property.property_bedrooms) }}</span>
+							<span class="infobath">{{ getOnlyNumber(property.property_bathrooms) }}</span>
+							<span class="infosize">{{ formatNumber(property.property_size) }} sqft</span>
+						</div>
+						<div class="listing_price_area">
+							<span class="listing_price_right">${{ formatNumber(property.property_price) }}</span>
+					   </div>
+					   
                         <h4>Valuation: {{ formatNumber(property.property_valuation) }}</h4>
                         <h4>Sale off: {{ countPercent(property.property_valuation, property.property_price) }} %</h4>
+						</div>
                     </div>
+					
                 </div>
                 <a class="remove-underscore" href="#/home/{{home.id}}">View More</a>
             </div>
         </div>
-        
-        <div><h3><a class="remove-underscore" href="#">Search</a></h3></div>
-        <div><h3><a class="remove-underscore" href="#">Saved Search</a></h3></div>
-        <div><h3><a class="remove-underscore" href="#">Notification</a></h3></div>
     </ion-content>
 </ion-view>
