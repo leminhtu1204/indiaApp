@@ -7,6 +7,7 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
         console.log("Loading bootstrap controller");
 
         $scope.changePassFormData = {};
+        $scope.myProfile = JSON.parse(window.localStorage.getItem('profile')).data.user_data;
 
         $scope.logout = function () {
             window.localStorage.removeItem('profile');

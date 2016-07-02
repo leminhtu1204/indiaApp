@@ -21,7 +21,10 @@
         </ion-header-bar>
         <ion-content>
             <ion-list>
-                <ion-item menu-close href="#belowval/my-profile">
+                <ion-item menu-close class="item-profile" href="#belowval/my-profile">
+                    <div class="item-avatar">
+                        <img ng-src="{{myProfile.wp_user_avatar}}">
+                    </div>
                     My Profile
                 </ion-item>
                 <ion-item menu-close>

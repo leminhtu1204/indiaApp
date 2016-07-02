@@ -4,7 +4,51 @@
             <i class="icon ion-ios-arrow-back"> Back</i>
         </button>
     </ion-nav-buttons>
+
     <ion-content>
-        <h1>My Profile</h1>
+        <ion-item class="item-profile">
+            <div class="item-avatar">
+                <img ng-src="{{myProfile.wp_user_avatar}}">
+            </div>
+        </ion-item>
+
+        <button class="button button-block button-positive submitbutton">UPLOAD PROFILE IMAGE</button>
+        <h5>First name</h5>
+        <input name="firstName" ng-model="myProfile.first_name"/>
+
+        <h5>Last name</h5>
+        <input name="lastName" ng-model="myProfile.last_name"/>
+
+        <h5>Phone</h5>
+        <input name="phone" ng-model="myProfile.phone"/>
+
+        <h5>Mobile</h5>
+        <input name="mobile" ng-model="myProfile.mobile"/>
+
+        <h5>Email</h5>
+        <input name="email" ng-model="myProfile.user_email"/>
+
+        <h5>Website</h5>
+        <input name="website" ng-model="myProfile.website"/>
+
+        <h5>Facebook</h5>
+        <input name="facebook" ng-model="myProfile.facebook"/>
+
+        <h5>Twitter</h5>
+        <input name="twitter" ng-model="myProfile.twitter"/>
+
+        <h5>LinkedIn</h5>
+        <input name="linkedin" ng-model="myProfile.linkedin"/>
+
+        <h5>Pinterest</h5>
+        <input name="pinterest"/>
+
+        <h5>Title/Position</h5>
+        <input name="title" ng-model="myProfile.title"/>
+
+        <h5>About me</h5>
+        <input name="description" ng-model="myProfile.description"/>
+
+        <button class="button button-block button-positive submitbutton">UPDATE PROFILE</button>
     </ion-content>
 </ion-view>

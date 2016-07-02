@@ -10,7 +10,10 @@ angular.module('Belowval.Profile', [])
 
     .controller('MyProfileController', function ($scope, $state) {
         console.log('My Profile controller is loading ..');
-        $scope.goBack = function(){
+
+        $scope.myProfile = JSON.parse(window.localStorage.getItem('profile')).data.user_data;
+
+        $scope.goBack = function () {
             console.log("Go Back")
             $state.go('belowval.home');
         }
