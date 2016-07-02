@@ -1,9 +1,6 @@
-<ion-side-menus enable-menu-with-back-views="false">
+<ion-side-menus enable-menu-with-back-views="true">
     <ion-side-menu-content>
         <ion-nav-bar class="bar-stable">
-            <ion-nav-back-button class="button-clear">
-                <i class="ion-arrow-left-c"></i> Back
-            </ion-nav-back-button>
             <ion-nav-buttons side="left" ng-show="showLogOutButton">
                 <button class="ion-arrow-left-c" ng-click="logout()">Logout</button>
             </ion-nav-buttons>
@@ -23,7 +20,7 @@
         </ion-header-bar>
         <ion-content>
             <ion-list>
-                <ion-item menu-close>
+                <ion-item menu-close href="#belowval/my-profile">
                     My Profile
                 </ion-item>
                 <ion-item menu-close>

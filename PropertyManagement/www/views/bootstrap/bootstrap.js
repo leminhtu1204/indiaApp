@@ -49,5 +49,4 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
 
             });
         }
-
     });
