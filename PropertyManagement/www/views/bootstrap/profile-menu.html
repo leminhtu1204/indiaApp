@@ -1,12 +1,13 @@
 <ion-side-menus enable-menu-with-back-views="true">
     <ion-side-menu-content>
-        <ion-nav-bar class="bar-stable">
+        <ion-nav-bar class="bar-stable mainbar">
             <ion-nav-buttons side="left" ng-show="showLogOutButton">
-                <button class="ion-arrow-left-c" ng-click="logout()">Logout</button>
+                <button class="logoutbutton" ng-click="logout()"> <img src="img/back.png" class="back"> </button>
             </ion-nav-buttons>
 
             <ion-nav-buttons side="right">
-                <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+                <button class="button button-icon button-clear logoutbutton" menu-toggle="right">
+					<img src="img/PROFILE_SETTINGS ICON.png" id="back">
                 </button>
             </ion-nav-buttons>
         </ion-nav-bar>
@@ -42,3 +43,16 @@
         </ion-content>
     </ion-side-menu>
 </ion-side-menus>
+
+<ion-footer-bar align-title="left" class="bar-assertive footerbar">
+  <div class="buttons leftfoot">
+    <button class="button footerbutton">Search</button>
+  </div>
+  <div class="buttons centerfoot" ng-click="doSomething()">
+    <button class="button footerbutton">Saved Searches</button>
+  </div>
+  <div class="buttons rightfoot">
+    <button class="button footerbutton notification">Notifications</button>
+  </div>
+  
+</ion-footer-bar>
