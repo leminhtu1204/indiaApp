@@ -48,7 +48,7 @@ input.emailtextbox::-webkit-input-placeholder {
 	font-size: 13px;
 	
 }
-.item-input{
+.loginiteminput{
 	background-color: transparent !important;
 	border: none;
 	border-width: 1px;
