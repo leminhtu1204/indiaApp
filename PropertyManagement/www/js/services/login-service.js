@@ -59,6 +59,19 @@ angular.module('Belowval.LoginService', [])
                         console.log(response);
                         return response;
                     });
+                },
+
+                updateMyProfile: function (data) {
+                    // data = {method:6, user_data: {..}}
+                    console.log("request: " + data);
+
+                    return $http.post(ws_end_point, data).then(function (response) {
+                        console.log(response);
+                        return response;
+                    }, function (response) {
+                        console.log(response);
+                        return response;
+                    })
                 }
             }
         }
