@@ -3,14 +3,21 @@
         <button class="ion-arrow-left-c" ng-click="logout()">Logout</button>
     </ion-nav-buttons>-->
 
-    <ion-content>
+    <ion-content  class="hadhead">
+		<div class="pcbar">
+			<div class="pcbaritem"><button class="button smsbutt"></button></div>
+			<div class="pcbaritem"><button class="button callbutt"></button></div>
+			<div class="pcbaritem"><button class="button mailbutt"></button></div>
+			<div class="pcbaritem"><button class="button savebutt"></button></div>
+		</div>
+		<h2 class="pdetailtitle">{{ property.post_title }}</h2>
         <ion-slide-box on-slide-changed="slideHasChanged($index)">
             <ion-slide ng-repeat="image in property.images">
-                <img ng-src="{{image}}" style="width:300px;height:300px;margin:auto;display:block" >
+                <img ng-src="{{image}}" style="width:100%;height:250px;margin:auto;display:block" >
             </ion-slide>
         </ion-slide-box>
         <div class="item">
-            <h2>{{ property.post_title }}</h2>
+            
             <h2>{{ property.property_address }}</h2>
             <h2>{{ getOnlyNumber(property.property_bathrooms) }}</h2>
             <h2>{{ getOnlyNumber(property.property_bedrooms) }}</h2>

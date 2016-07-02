@@ -524,3 +524,104 @@ div.viewmore a
 {
 	color: #fff !important;
 }
+h2.pdetailtitle
+{
+	margin-left: 10px;
+	max-width: 100%;
+	font-weight: 500;
+	display: inline-block;
+	color: #908a8a;
+	font-size: 23px !important;
+	font-family: 'Open Sans',sans-serif;
+}
+div.pcbar
+{
+	width:calc(100%);
+	margin-bottom:15px !important;
+}
+div.pcbaritem
+{
+	float: left;
+	width:calc(25%);
+	background-color: transparent !important;
+}
+.smsbutt
+{
+
+	background-color: transparent !important;
+	border: 0px solid;
+	width: 100%;
+	padding-top:35px !important;
+	font-size: 15px !important;
+	background-image:url('../img/SMSIcon.png') !important;
+	background-size: 75% 75% !important;
+	background-repeat: no-repeat;
+    background-position: center; 
+}
+.savebutt
+{
+	
+	background-color: transparent !important;
+	border: 0px solid;
+	width: 100%;
+	padding-top:35px !important;
+	font-size: 15px !important;
+	background-image:url('../img/SaveIcon.png') !important;
+	background-size: 75% 75% !important;
+	background-repeat: no-repeat;
+    background-position: center; 
+}
+.callbutt
+{
+	
+	background-color: transparent !important;
+	border: 0px solid;
+	width: 100%;
+	padding-top:35px !important;
+	font-size: 15px !important;
+	background-image:url('../img/PhoneIcon.png') !important;
+	background-size: 75% 75% !important;
+	background-repeat: no-repeat;
+    background-position: center; 
+}
+.mailbutt
+{
+	
+	background-color: transparent !important;
+	border: 0px solid;
+	width: 100%;
+	padding-top:35px !important;
+	font-size: 15px !important;
+	background-image:url('../img/Mailicon.png') !important;
+	background-size: 75% 75% !important;
+	background-repeat: no-repeat;
+    background-position: center; 
+}
+div.ava_icon
+{
+	width: 25% !important;
+	display: inline-block;
+	height: auto !important;
+	min-height: 30px !important;
+	padding-left: 0px !important; 
+}
+img.ava_icon
+{
+	width: 25% !important;
+	height: auto !important;
+}
+img.ava_full
+{
+	width: 100% !important;
+
+	height: auto !important;
+	max-width: 500px !important;
+    max-height: 500px !important;
+}
+
+.profileava
+{
+	height: auto !important;
+	border-radius: 50% !important;
+	border: 0px !important;
+}
