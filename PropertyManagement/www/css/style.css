@@ -5,11 +5,14 @@ body.grade-a {
 }
 
 
+body.keyboard-open > :first-child> .registe{
+	background-image: url('../img/background.jpg');
+	background-size: 100% auto !important;
+}
 
-
-
-
-
+body.keyboard-open > :first-child> .registe> .mainpage_register{
+	top: 20% !important;
+}
 
 html {
     height: 100%;
