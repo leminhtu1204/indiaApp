@@ -1,7 +1,7 @@
 <ion-view view-title="">
-<!--    <ion-nav-buttons side="left">
-        <button class="ion-arrow-left-c" ng-click="logout()">Logout</button>
-    </ion-nav-buttons>-->
+    <ion-nav-buttons side="left">
+        <button class="logoutbutton" ng-click="backToPrevious()"><img src="img/back.png" class="back"></button>
+    </ion-nav-buttons>
 
     <ion-content  class="hadhead">
 		<div class="pcbar">
@@ -26,24 +26,24 @@
             <h4>Zip: {{ property.property_zip }}</h4>
             <h4>Price: {{ formatNumber(property.property_price) }}</h4>
             <h4>Size: {{ formatNumber(property.property_size) }}</h4>
-            <h4>Valuation: {{ formatNumber(property.pfcity_view) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.pfcorner_unit) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.pfground_floor) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.pfhigh_floor) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.pflow_floor) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.pfparkgreenery_view) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.pfpenthouse) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.pfrenovated) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.pfsea_view) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.pfswimming_pool_view) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.piosbalcony) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.piosbombshelter) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.piosgarage) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.piosmaidsroom) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.piosoutdoor_patio) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.piosprivate_garden) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.piosroof_terrace) }}</h4>
-			<h4>Valuation: {{ formatNumber(property.pioswalkin_wardrobe) }}</h4>
+            <h4>Valuation: {{ property.pfcity_view }}</h4>
+			<h4>Valuation: {{ property.pfcorner_unit }}</h4>
+			<h4>Valuation: {{ property.pfground_floor }}</h4>
+			<h4>Valuation: {{ property.pfhigh_floor }}</h4>
+			<h4>Valuation: {{ property.pflow_floor }}</h4>
+			<h4>Valuation: {{ property.pfparkgreenery_view }}</h4>
+			<h4>Valuation: {{ property.pfpenthouse }}</h4>
+			<h4>Valuation: {{ property.pfrenovated }}</h4>
+			<h4>Valuation: {{ property.pfsea_view }}</h4>
+			<h4>Valuation: {{ property.pfswimming_pool_view }}</h4>
+			<h4>Valuation: {{ property.piosbalcony }}</h4>
+			<h4>Valuation: {{ property.piosbombshelter }}</h4>
+			<h4>Valuation: {{ property.piosgarage }}</h4>
+			<h4>Valuation: {{ property.piosmaidsroom }}</h4>
+			<h4>Valuation: {{ property.piosoutdoor_patio }}</h4>
+			<h4>Valuation: {{ property.piosprivate_garden }}</h4>
+			<h4>Valuation: {{ property.piosroof_terrace }}</h4>
+			<h4>Valuation: {{ property.pioswalkin_wardrobe }}</h4>
         </div>
         <p ng-bind-html="property.post_content"></p>
     </ion-content>
