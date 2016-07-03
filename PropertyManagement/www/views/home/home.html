@@ -9,15 +9,11 @@
                 <div><h3 class="grouptitle">{{home.desription}}</h3></div>
                 <div ng-repeat="property in home.listproperty" class="list card my-card remove-underscore propertydetail">
 					<div class="wrapperdetail">
-						<a ng-click="redirectToDetail({{property.id}})">
-						<img class="item item-image propertyimage" ng-src="{{ property._thumbnail_id }}">
-						<!-- start for aunction property only(group 1)-->
-						<div ng-show="$index === 0" class="auction_sticker red-bg">Auction (Owner's Sale)</div>
-						<!-- end for aunction property only(group 1)-->
-						<!--start for normal property only(group 1)-->
-						<div ng-show="$index !== 0" class="auction_sticker">Below by: {{ countPercent(property.property_valuation, property.property_price) }}%</div>
-						 end for normal property only(group 1)
-						</a>
+					    <a ng-click="redirectToDetail({{property.id}})">
+					        <img class="item item-image propertyimage" ng-src="{{ property._thumbnail_id }}">
+					        <div ng-show="$index === 0" class="auction_sticker red-bg">Auction (Owner's Sale)</div>
+					        <div ng-show="$index !== 0 && (countPercent(property.property_valuation, property.property_price)) > 0" class="auction_sticker">Below by: {{ countPercent(property.property_valuation, property.property_price) }}%</div>
+					    </a>
 					</div>
                     <div class="item propertyitemdetail">
 						<!-- start for aunction property only(group 1)-->

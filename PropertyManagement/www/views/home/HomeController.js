@@ -1,6 +1,6 @@
-angular.module('Belowval.Home', []).controller('HomeController', function ($scope, $state, $http) {
+angular.module('Belowval.Home', []).controller('HomeController', function (UserLogin, $scope, $state, $http) {
 
-    ws_end_point = "http://underval.com/underval.com/engineermaster/api/api.php";
+    ws_end_point = UserLogin.getWsEndPoint();
     $scope.homeData = [];
     $scope.init = function () {
         $http.post(ws_end_point, { "method": "3a" }).success(function (data) {
@@ -23,7 +23,7 @@ angular.module('Belowval.Home', []).controller('HomeController', function ($scop
     };
 
     $scope.countPercent = function (a, b) {
-        if (!!a && !!b) {
+        if (a && b) {
             return Math.round((a - b) / a * 100);
         }
         return 0;
