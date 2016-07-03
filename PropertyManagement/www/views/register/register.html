@@ -2,41 +2,42 @@
     <ion-content class="padding mainpage_register">
         <form name="registerForm" novalidate>
             <div class="list list-inset">
-				<div class="inputelement">
-					<div class="regis_validate regis_valid"></div>
-					<input type="text" placeholder="Username" ng-model="registerData.user_login">
-				</div>
+                <div class="inputelement">
+                    <div class="regis_validate regis_valid" ng-show="registerData.user_login"></div>
+                    <input type="text" placeholder="Username" ng-model="registerData.user_login">
+                </div>
                 <div class="inputelement">
                     <div class="regis_validate regis_valid"
-                         ng-show="(!registerForm.email.$invalid || registerForm.email.$pristine)"></div>
+                         ng-show="(!registerForm.email.$invalid || registerForm.email.$pristine) && registerData.email"></div>
                     <div class="regis_validate regis_unvalid"
                          ng-show="registerForm.email.$invalid && !registerForm.email.$pristine"></div>
 
                     <input type="email" name="email" placeholder="Email" ng-model="registerData.email">
                 </div>
                 <div class="inputelement">
-					<div class="regis_validate regis_valid"></div>
+                    <div class="regis_validate regis_valid" ng-show="registerData.password"></div>
                     <input type="password" placeholder="Password" ng-model="registerData.password"/>
                 </div>
                 <div class="inputelement">
                     <div class="regis_validate regis_valid"
-                         ng-show="!registerForm.repeatpassword.$error.passwordVerify"></div>
+                         ng-show="!registerForm.repeatpassword.$error.passwordVerify && repeatpassword"></div>
                     <div class="regis_validate regis_unvalid"
                          ng-show="registerForm.repeatpassword.$error.passwordVerify"></div>
 
                     <input type="password" name="repeatpassword" placeholder="Repeat password" ng-model="repeatpassword"
                            data-password-verify="registerData.password"/>
                 </div>
-				<div class="accepttext">
-					I accept the terms and conditions and that my details will not be distributed to third parties.
-				</div>
-				<div class="registerbutton" >
-					<button class="button button-block button-positive" ng-disabled="registerForm.email.$invalid"
-							ng-click="register(registerData)">
-						Register
-					</button>
-					<img src="img/register.png" width="25%">
-				</div>
+                <div class="accepttext">
+                    I accept the terms and conditions and that my details will not be distributed to third parties.
+                </div>
+                <div class="registerbutton">
+                    <button class="button button-block button-positive"
+                            ng-click="register(registerData)">
+                        Register
+                    </button>
+                    <img src="img/register.png" width="25%"
+                         ng-click="register(registerData)">
+                </div>
             </div>
         </form>
     </ion-content>
