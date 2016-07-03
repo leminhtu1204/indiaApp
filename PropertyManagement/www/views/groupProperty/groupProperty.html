@@ -10,13 +10,13 @@
 					<div class="wrapperdetail">
 					    <a ng-click="redirect({{property.id}}, 'detail')">
 					        <img class="item item-image propertyimage" ng-src="{{ property._thumbnail_id }}">
-					        <div ng-show="groupData.id === 1" class="auction_sticker red-bg">Auction (Owner's Sale)</div>
-					        <div ng-show="groupData.id !== 1 && (countPercent(property.property_valuation, property.property_price)) > 0" class="auction_sticker">Below by: {{ countPercent(property.property_valuation, property.property_price) }}%</div>
+					        <div ng-show="groupData.id == 1" class="auction_sticker red-bg">Auction (Owner's Sale)</div>
+					        <div ng-show="groupData.id != 1 && (countPercent(property.property_valuation, property.property_price)) > 0" class="auction_sticker">Below by: {{ countPercent(property.property_valuation, property.property_price) }}%</div>
 					    </a>
 					</div>
                     <div class="item propertyitemdetail">
 						<!-- start for aunction property only(group 1)-->
-						<div ng-show="groupData === 1" class="listoverlay">
+						<div ng-show="groupData.id == 1" class="listoverlay">
 							<div class="auction_sticker_second">Price is Only Indicative. Send Your Bid to Agent</div>
 						</div>
 						<!-- end for aunction property only(group 1)-->
