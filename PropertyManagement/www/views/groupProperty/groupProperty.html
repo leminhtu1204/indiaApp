@@ -5,10 +5,10 @@
 
     <ion-content class="hadhead">
         <div class="list">
-           <div><h3 class="grouptitle">{{home.desription}}</h3></div>
+           <div><h3 class="grouptitle">{{groupData.description}}</h3></div>
                 <div ng-repeat="property in groupData.listproperty" class="list card my-card remove-underscore propertydetail">
 					<div class="wrapperdetail">
-					    <a ng-click="redirectToDetail({{property.id}})">
+					    <a ng-click="redirect({{property.id}}, 'detail')">
 					        <img class="item item-image propertyimage" ng-src="{{ property._thumbnail_id }}">
 					        <div ng-show="$index === 0" class="auction_sticker red-bg">Auction (Owner's Sale)</div>
 					        <div ng-show="$index !== 0 && (countPercent(property.property_valuation, property.property_price)) > 0" class="auction_sticker">Below by: {{ countPercent(property.property_valuation, property.property_price) }}%</div>
