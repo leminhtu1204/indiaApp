@@ -1,7 +1,7 @@
-<ion-view view-title="Property Detail">
-    <ion-nav-buttons side="left">
-        <button class="logoutbutton" ng-click="backToPrevious()"><img src="img/back.png" class="back"></button>
-    </ion-nav-buttons>
+<ion-view view-title="">
+<!--    <ion-nav-buttons side="left">
+        <button class="ion-arrow-left-c" ng-click="logout()">Logout</button>
+    </ion-nav-buttons>-->
 
     <ion-content  class="hadhead">
 		<div class="pcbar">
@@ -11,7 +11,7 @@
 			<div class="pcbaritem"><button class="button savebutt"></button></div>
 		</div>
 		<h2 class="pdetailtitle">{{ property.post_title }}</h2>
-        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true">
             <ion-slide ng-repeat="image in property.images">
                 <img ng-src="{{image}}" style="width:100%;height:250px;margin:auto;display:block" >
             </ion-slide>
@@ -26,7 +26,24 @@
             <h4>Zip: {{ property.property_zip }}</h4>
             <h4>Price: {{ formatNumber(property.property_price) }}</h4>
             <h4>Size: {{ formatNumber(property.property_size) }}</h4>
-            <h4>Valuation: {{ formatNumber(property.property_valuation) }}</h4>
+            <h4>Valuation: {{ formatNumber(property.pfcity_view) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.pfcorner_unit) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.pfground_floor) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.pfhigh_floor) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.pflow_floor) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.pfparkgreenery_view) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.pfpenthouse) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.pfrenovated) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.pfsea_view) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.pfswimming_pool_view) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.piosbalcony) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.piosbombshelter) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.piosgarage) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.piosmaidsroom) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.piosoutdoor_patio) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.piosprivate_garden) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.piosroof_terrace) }}</h4>
+			<h4>Valuation: {{ formatNumber(property.pioswalkin_wardrobe) }}</h4>
         </div>
         <p ng-bind-html="property.post_content"></p>
     </ion-content>
