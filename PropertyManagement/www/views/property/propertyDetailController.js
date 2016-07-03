@@ -1,6 +1,6 @@
-angular.module('Belowval.PropertyDetail', []).controller('PropertyDetailController', function ($scope, $state, $http, $stateParams, $ionicSlideBoxDelegate) {
+angular.module('Belowval.PropertyDetail', []).controller('PropertyDetailController', function (UserLogin, $scope, $state, $http, $stateParams, $ionicSlideBoxDelegate) {
 
-    ws_end_point = "http://underval.com/underval.com/engineermaster/api/api.php";
+    ws_end_point = UserLogin.getWsEndPoint();
 
     $scope.init = function () {
         $http.post(ws_end_point, { "method": 5, "propertyid": $stateParams.id }).success(function (data) {

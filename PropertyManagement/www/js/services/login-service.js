@@ -72,6 +72,10 @@ angular.module('Belowval.LoginService', [])
                         console.log(response);
                         return response;
                     })
+                },
+
+                getWsEndPoint: function() {
+                    return ws_end_point;
                 }
             }
         }

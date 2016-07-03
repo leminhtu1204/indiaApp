@@ -1,4 +1,4 @@
-angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register',
+angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register', 'Belowval.GroupProperty',
     'Belowval.PropertyDetail', 'Belowval.Profile'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -8,7 +8,6 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                 controller: 'BootstrapController',
                 templateUrl: 'views/bootstrap/profile-menu.html'
             })
-
             .state('belowval.home', {
                 url: '/home',
                 views: {
@@ -18,7 +17,15 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                     }
                 }
             })
-
+            .state('belowval.groupProperty', {
+                url: '/group/:id',
+                views: {
+                    'menuContent': {
+                        controller: 'GroupPropertyController',
+                        templateUrl: 'views/groupProperty/groupProperty.html'
+                    }
+                }
+            })
             .state('belowval.my-profile', {
                 url: '/my-profile',
                 views: {
@@ -28,7 +35,6 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                     }
                 }
             })
-
             .state('belowval.detail', {
                 url: '/detail/:id',
                 views: {
@@ -38,13 +44,11 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                     }
                 }
             })
-
             .state('register', {
                 url: '/register',
                 controller: 'registerController',
                 templateUrl: 'views/register/register.html'
             })
-
             .state('login', {
                 url: '/login',
                 controller: "loginController",
