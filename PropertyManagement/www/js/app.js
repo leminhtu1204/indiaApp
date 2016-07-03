@@ -1,4 +1,4 @@
-angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register',
+angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register', 'Belowval.GroupProperty',
     'Belowval.PropertyDetail', 'Belowval.Profile'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -14,6 +14,15 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                     'menuContent': {
                         controller: 'HomeController',
                         templateUrl: 'views/home/home.html'
+                    }
+                }
+            })
+            .state('belowval.groupProperty', {
+                url: '/group/:id',
+                views: {
+                    'menuContent': {
+                        controller: 'GroupPropertyController',
+                        templateUrl: 'views/groupProperty/groupProperty.html'
                     }
                 }
             })

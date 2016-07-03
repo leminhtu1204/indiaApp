@@ -1,15 +1,14 @@
 <ion-view>
-<!--    <ion-nav-buttons side="left">
-        <button class="ion-arrow-left-c" ng-click="logout()">Logout</button>
-    </ion-nav-buttons>-->
+    <ion-nav-buttons side="left">
+        <button class="logoutbutton" ng-click="backToPrevious()"><img src="/img/back.png" class="back"></button>
+    </ion-nav-buttons>
 
     <ion-content class="hadhead">
         <div class="list">
-            <div ng-repeat="home in homeData" class="rowgroup groupcontainer">
-                <div><h3 class="grouptitle">{{home.desription}}</h3></div>
-                <div ng-repeat="property in home.listproperty" class="list card my-card remove-underscore propertydetail">
+           <div><h3 class="grouptitle">{{home.desription}}</h3></div>
+                <div ng-repeat="property in groupData.listproperty" class="list card my-card remove-underscore propertydetail">
 					<div class="wrapperdetail">
-					    <a ng-click="redirect({{property.id}}, 'detail')">
+					    <a ng-click="redirectToDetail({{property.id}})">
 					        <img class="item item-image propertyimage" ng-src="{{ property._thumbnail_id }}">
 					        <div ng-show="$index === 0" class="auction_sticker red-bg">Auction (Owner's Sale)</div>
 					        <div ng-show="$index !== 0 && (countPercent(property.property_valuation, property.property_price)) > 0" class="auction_sticker">Below by: {{ countPercent(property.property_valuation, property.property_price) }}%</div>
@@ -37,8 +36,6 @@
                    
 					
                 </div>
-                <div class="viewmore"><a class="remove-underscore" ng-click="redirect({{home.id}}, 'groupProperty')">View More</a></div>
-            </div>
         </div>
     </ion-content>
 </ion-view>

@@ -1,14 +1,18 @@
-angular.module('Belowval.Home', []).controller('HomeController', function (UserLogin, $scope, $state, $http) {
+angular.module('Belowval.GroupProperty', []).controller('GroupPropertyController', function ($stateParams, UserLogin, $scope, $state, $http) {
 
     ws_end_point = UserLogin.getWsEndPoint();
-    $scope.homeData = [];
+    $scope.groupData = [];
     $scope.init = function () {
-        $http.post(ws_end_point, { "method": "3a" }).success(function (data) {
-            $scope.homeData = data;
+        $http.post(ws_end_point, { "method": "7", "group_id": $stateParams.id }).success(function (data) {
+            $scope.groupData = data;
 
         }).error(function () {
 
         });
+    };
+
+    $scope.backToPrevious = function () {
+        $state.go('belowval.home');
     };
 
     $scope.getOnlyNumber = function (string) {
@@ -18,8 +22,8 @@ angular.module('Belowval.Home', []).controller('HomeController', function (UserL
         return 0;
     };
 
-    $scope.redirect = function(id, page) {
-        $state.go('belowval.' + page, {"id":id});
+    $scope.redirectToDetail = function(id) {
+        $state.go('belowval.detail', {"id":id});
     };
 
     $scope.countPercent = function (a, b) {
