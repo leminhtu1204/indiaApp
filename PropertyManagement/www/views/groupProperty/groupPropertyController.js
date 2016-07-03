@@ -22,8 +22,8 @@ angular.module('Belowval.GroupProperty', []).controller('GroupPropertyController
         return 0;
     };
 
-    $scope.redirectToDetail = function(id) {
-        $state.go('belowval.detail', {"id":id});
+    $scope.redirect = function (id, page) {
+        $state.go('belowval.' + page, { "id": id });
     };
 
     $scope.countPercent = function (a, b) {
