@@ -8,7 +8,6 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                 controller: 'BootstrapController',
                 templateUrl: 'views/bootstrap/profile-menu.html'
             })
-
             .state('belowval.home', {
                 url: '/home',
                 views: {
@@ -18,7 +17,6 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                     }
                 }
             })
-
             .state('belowval.my-profile', {
                 url: '/my-profile',
                 views: {
@@ -28,7 +26,6 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                     }
                 }
             })
-
             .state('belowval.detail', {
                 url: '/detail/:id',
                 views: {
@@ -38,13 +35,11 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                     }
                 }
             })
-
             .state('register', {
                 url: '/register',
                 controller: 'registerController',
                 templateUrl: 'views/register/register.html'
             })
-
             .state('login', {
                 url: '/login',
                 controller: "loginController",
