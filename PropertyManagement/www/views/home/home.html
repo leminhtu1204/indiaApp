@@ -1,4 +1,4 @@
-<ion-view view-title="Home">
+<ion-view>
 <!--    <ion-nav-buttons side="left">
         <button class="ion-arrow-left-c" ng-click="logout()">Logout</button>
     </ion-nav-buttons>-->
@@ -12,16 +12,16 @@
 						<a ng-click="redirectToDetail({{property.id}})">
 						<img class="item item-image propertyimage" ng-src="{{ property._thumbnail_id }}">
 						<!-- start for aunction property only(group 1)-->
-						<div class="auction_sticker red-bg">Auction (Owner's Sale)</div>
+						<div ng-show="$index === 0" class="auction_sticker red-bg">Auction (Owner's Sale)</div>
 						<!-- end for aunction property only(group 1)-->
-						<!-- start for normal property only(group 1)
-						<div class="auction_sticker">Below by: {{ countPercent(property.property_valuation, property.property_price) }}%</div>
-						 end for normal property only(group 1)-->
+						<!--start for normal property only(group 1)-->
+						<div ng-show="$index !== 0" class="auction_sticker">Below by: {{ countPercent(property.property_valuation, property.property_price) }}%</div>
+						 end for normal property only(group 1)
 						</a>
 					</div>
                     <div class="item propertyitemdetail">
 						<!-- start for aunction property only(group 1)-->
-						<div class="listoverlay">
+						<div ng-show="$index === 0" class="listoverlay">
 							<div class="auction_sticker_second">Price is Only Indicative. Send Your Bid to Agent</div>
 						</div>
 						<!-- end for aunction property only(group 1)-->

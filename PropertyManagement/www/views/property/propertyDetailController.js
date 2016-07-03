@@ -15,6 +15,10 @@ angular.module('Belowval.PropertyDetail', []).controller('PropertyDetailControll
         });
     };
 
+    $scope.backToPrevious = function() {
+        $state.go('belowval.home');
+    };
+
     if (window.localStorage.getItem('profile') != undefined) {
         $scope.init();
     } else {
