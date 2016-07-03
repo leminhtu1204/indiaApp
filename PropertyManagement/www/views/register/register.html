@@ -7,15 +7,23 @@
 					<input type="text" placeholder="Username" ng-model="registerData.user_login">
 				</div>
                 <div class="inputelement">
-					<div class="regis_validate"></div>
+                    <div class="regis_validate regis_valid"
+                         ng-show="(!registerForm.email.$invalid || registerForm.email.$pristine)"></div>
+                    <div class="regis_validate regis_unvalid"
+                         ng-show="registerForm.email.$invalid && !registerForm.email.$pristine"></div>
+
                     <input type="email" name="email" placeholder="Email" ng-model="registerData.email">
                 </div>
                 <div class="inputelement">
-					<div class="regis_validate"></div>
+					<div class="regis_validate regis_valid"></div>
                     <input type="password" placeholder="Password" ng-model="registerData.password"/>
                 </div>
                 <div class="inputelement">
-					<div class="regis_validate regis_unvalid"></div>
+                    <div class="regis_validate regis_valid"
+                         ng-show="!registerForm.repeatpassword.$error.passwordVerify"></div>
+                    <div class="regis_validate regis_unvalid"
+                         ng-show="registerForm.repeatpassword.$error.passwordVerify"></div>
+
                     <input type="password" name="repeatpassword" placeholder="Repeat password" ng-model="repeatpassword"
                            data-password-verify="registerData.password"/>
                 </div>
@@ -30,13 +38,6 @@
 					<img src="img/register.png" width="25%">
 				</div>
             </div>
-
-            <div class="padding">
-                <p ng-show="registerForm.email.$invalid && !registerForm.email.$pristine">* Wrong email format</p>
-            </div>
-
-            <div ng-show="registerForm.repeatpassword.$error.passwordVerify">Repeat password does not match!</div>
-
         </form>
     </ion-content>
 </ion-view>
