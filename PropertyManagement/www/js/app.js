@@ -1,4 +1,5 @@
-angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register', 'Belowval.PropertyDetail'])
+angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register', 'Belowval.GroupProperty',
+    'Belowval.PropertyDetail', 'Belowval.Profile'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('belowval', {
@@ -6,14 +7,31 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                 abstract: true,
                 controller: 'BootstrapController',
                 templateUrl: 'views/bootstrap/profile-menu.html'
-              })
-
+            })
             .state('belowval.home', {
                 url: '/home',
-                views:{
+                views: {
                     'menuContent': {
                         controller: 'HomeController',
                         templateUrl: 'views/home/home.html'
+                    }
+                }
+            })
+            .state('belowval.groupProperty', {
+                url: '/group/:id',
+                views: {
+                    'menuContent': {
+                        controller: 'GroupPropertyController',
+                        templateUrl: 'views/groupProperty/groupProperty.html'
+                    }
+                }
+            })
+            .state('belowval.my-profile', {
+                url: '/my-profile',
+                views: {
+                    'menuContent': {
+                        controller: 'MyProfileController',
+                        templateUrl: 'views/profile/my-profile.html'
                     }
                 }
             })
@@ -31,7 +49,6 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                 controller: 'registerController',
                 templateUrl: 'views/register/register.html'
             })
-
             .state('login', {
                 url: '/login',
                 controller: "loginController",

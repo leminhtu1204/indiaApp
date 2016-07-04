@@ -1,15 +1,50 @@
-<ion-view view-title="Home">
-<!--    <ion-nav-buttons side="left">
-        <button class="ion-arrow-left-c" ng-click="logout()">Logout</button>
-    </ion-nav-buttons>-->
+<ion-view view-title="">
+    <ion-nav-buttons side="left">
+        <button class="logoutbutton" ng-click="backToPrevious()"><img src="img/back.png" class="back"></button>
+    </ion-nav-buttons>
 
-    <ion-content>
-        <div class="list">
-            Detail page
+    <ion-content  class="hadhead">
+		<div class="pcbar">
+			<div class="pcbaritem"><button class="button smsbutt"></button></div>
+			<div class="pcbaritem"><button class="button callbutt"></button></div>
+			<div class="pcbaritem"><button class="button mailbutt"></button></div>
+			<div class="pcbaritem"><button class="button savebutt"></button></div>
+		</div>
+		<h2 class="pdetailtitle">{{ property.post_title }}</h2>
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true">
+            <ion-slide ng-repeat="image in property.images">
+                <img ng-src="{{image}}" style="width:100%;height:250px;margin:auto;display:block" >
+            </ion-slide>
+        </ion-slide-box>
+        <div class="item">
+            
+            <h2>{{ property.property_address }}</h2>
+            <h2>{{ getOnlyNumber(property.property_bathrooms) }}</h2>
+            <h2>{{ getOnlyNumber(property.property_bedrooms) }}</h2>
+            <h4>Country: {{ property.property_country }}</h4>
+            <h4>Longitude: {{ property.property_longitude }}</h4>
+            <h4>Zip: {{ property.property_zip }}</h4>
+            <h4>Price: {{ formatNumber(property.property_price) }}</h4>
+            <h4>Size: {{ formatNumber(property.property_size) }}</h4>
+            <h4>Valuation: {{ property.pfcity_view }}</h4>
+			<h4>Valuation: {{ property.pfcorner_unit }}</h4>
+			<h4>Valuation: {{ property.pfground_floor }}</h4>
+			<h4>Valuation: {{ property.pfhigh_floor }}</h4>
+			<h4>Valuation: {{ property.pflow_floor }}</h4>
+			<h4>Valuation: {{ property.pfparkgreenery_view }}</h4>
+			<h4>Valuation: {{ property.pfpenthouse }}</h4>
+			<h4>Valuation: {{ property.pfrenovated }}</h4>
+			<h4>Valuation: {{ property.pfsea_view }}</h4>
+			<h4>Valuation: {{ property.pfswimming_pool_view }}</h4>
+			<h4>Valuation: {{ property.piosbalcony }}</h4>
+			<h4>Valuation: {{ property.piosbombshelter }}</h4>
+			<h4>Valuation: {{ property.piosgarage }}</h4>
+			<h4>Valuation: {{ property.piosmaidsroom }}</h4>
+			<h4>Valuation: {{ property.piosoutdoor_patio }}</h4>
+			<h4>Valuation: {{ property.piosprivate_garden }}</h4>
+			<h4>Valuation: {{ property.piosroof_terrace }}</h4>
+			<h4>Valuation: {{ property.pioswalkin_wardrobe }}</h4>
         </div>
-        
-        <div><h3><a class="remove-underscore" href="#">Search</a></h3></div>
-        <div><h3><a class="remove-underscore" href="#">Saved Search</a></h3></div>
-        <div><h3><a class="remove-underscore" href="#">Notification</a></h3></div>
+        <p ng-bind-html="property.post_content"></p>
     </ion-content>
 </ion-view>

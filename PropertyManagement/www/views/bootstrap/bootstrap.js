@@ -7,6 +7,7 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
         console.log("Loading bootstrap controller");
 
         $scope.changePassFormData = {};
+        $scope.myProfile = JSON.parse(window.localStorage.getItem('profile')).data.user_data;
 
         $scope.logout = function () {
             window.localStorage.removeItem('profile');
@@ -18,14 +19,17 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
         $ionicModal.fromTemplateUrl('views/profile/change-password.html', {
             scope: $scope
         }).then(function (modal) {
+            console.log("init chane pass modal");
             $scope.modal = modal;
         });
 
         $scope.showChangePasswordModal = function () {
+            console.log("show change pass modal");
             $scope.modal.show();
         }
 
         $scope.closeChangePasswordModal = function () {
+            console.log("Close change pass modal");
             $scope.modal.hide();
         }
 
@@ -46,5 +50,4 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
 
             });
         }
-
     });

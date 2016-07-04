@@ -1,7 +1,10 @@
 ﻿angular.module('Belowval.Register', ['Belowval.LoginService'])
-
+    .run(function () {
+        console.log("Register module is loading..");
+    })
 
     .controller('registerController', function ($scope, $state, UserLogin, $ionicPopup, $timeout, $ionicLoading) {
+        console.log("Register controller is loading ..");
 
         $scope.register = function (data) {
             if (data != null) {

@@ -1,15 +1,13 @@
-<ion-side-menus enable-menu-with-back-views="false">
+<ion-side-menus enable-menu-with-back-views="true">
     <ion-side-menu-content>
-        <ion-nav-bar class="bar-stable">
-<!--            <ion-nav-back-button class="button-clear">
-                <i class="ion-arrow-left-c"></i> Back
-            </ion-nav-back-button>-->
-            <ion-nav-buttons side="left">
-                <button class="ion-arrow-left-c" ng-click="logout()">Logout</button>
+        <ion-nav-bar class="bar-stable mainbar">
+            <ion-nav-buttons side="left" ng-show="showLogOutButton">
+                <button class="logoutbutton" ng-click="logout()"> <img src="img/back.png" class="back"> </button>
             </ion-nav-buttons>
 
             <ion-nav-buttons side="right">
-                <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+                <button class="button button-icon button-clear logoutbutton" menu-toggle="right">
+					<img src="img/PROFILE_SETTINGS ICON.png" id="back">
                 </button>
             </ion-nav-buttons>
         </ion-nav-bar>
@@ -23,7 +21,10 @@
         </ion-header-bar>
         <ion-content>
             <ion-list>
-                <ion-item menu-close>
+                <ion-item menu-close class="item-profile" href="#belowval/my-profile">
+                    <div class="item-avatar ava_icon">
+                        <img ng-src="{{myProfile.wp_user_avatar}}" class="ava_icon">
+                    </div>
                     My Profile
                 </ion-item>
                 <ion-item menu-close>
@@ -45,3 +46,16 @@
         </ion-content>
     </ion-side-menu>
 </ion-side-menus>
+
+<ion-footer-bar align-title="left" class="bar-assertive footerbar">
+  <div class="buttons leftfoot">
+    <button class="button footerbutton">Search</button>
+  </div>
+  <div class="buttons centerfoot" ng-click="doSomething()">
+    <button class="button footerbutton">Saved Searches</button>
+  </div>
+  <div class="buttons rightfoot notification">
+    <button class="button footerbutton">Notifications</button>
+  </div>
+  
+</ion-footer-bar>
