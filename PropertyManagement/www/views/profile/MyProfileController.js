@@ -8,7 +8,8 @@ angular.module('Belowval.Profile', ['Belowval.LoginService'])
         console.log('Profile module is loading ..');
     })
 
-    .controller('MyProfileController', function ($scope, $state, UserLogin, $ionicLoading, $ionicPopup, $cordovaCamera) {
+    .controller('MyProfileController', function ($scope, $state, UserLogin, $ionicLoading, $ionicPopup, $cordovaCamera
+        , $cordovaFileTransfer) {
         console.log('My Profile controller is loading ..');
 
         $scope.myProfile = JSON.parse(window.localStorage.getItem('profile')).data.user_data;
@@ -72,6 +73,23 @@ angular.module('Belowval.Profile', ['Belowval.LoginService'])
 
             $cordovaCamera.getPicture(options).then(function (imageURL) {
                 $scope.myProfile.wp_user_avatar = imageURL;
+
+                var server = 'http://underval.com/underval.com/engineermaster/api/testingupload.php';
+                var uploadOptions = new FileUploadOptions();
+                uploadOptions.fileName = $scope.myProfile.ID + ".jpg";
+                uploadOptions.fileKey = 'file';
+                uploadOptions.mimeType = 'image/jpeg';
+
+
+                $cordovaFileTransfer.upload(server, imageURL, uploadOptions, true)
+                    .then(function (result) {
+                        // Success!
+                    }, function (err) {
+                        // Error
+                    }, function (progress) {
+                        // constant progress updates
+                    });
+
             }, function (err) {
                 // error
             });
