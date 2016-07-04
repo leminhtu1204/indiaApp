@@ -542,16 +542,27 @@ h2.pdetailtitle
 {
 	margin-left: 10px;
 	max-width: 100%;
+	margin-top: 0px !important;
+	font-weight: 500;
+	display: inline-block;
+	color: #00000;
+	font-size: 25px !important;
+	font-family: 'Open Sans',sans-serif;
+}
+h2.pdetailtitle2
+{
+	max-width: 100%;
 	font-weight: 500;
 	display: inline-block;
 	color: #908a8a;
 	font-size: 23px !important;
 	font-family: 'Open Sans',sans-serif;
+	/* margin-bottom: 18px !important; */
 }
 div.pcbar
 {
 	width:calc(100%);
-	margin-bottom:15px !important;
+	/* margin-bottom:15px !important; */
 }
 div.pcbaritem
 {
@@ -638,4 +649,73 @@ img.ava_full
 	height: auto !important;
 	border-radius: 50% !important;
 	border: 0px !important;
+}
+span.price_left, span.price_right {
+    display: inline-block;
+}
+.text-black{
+	color: black !important;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	font-family: 'Open Sans',sans-serif;
+}
+.sec-color
+{
+	color: #739a29 !important;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	font-family: 'Open Sans',sans-serif;
+}
+.red-color
+{
+	color: red !important;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	font-family: 'Open Sans',sans-serif;
+}
+span.price_left {
+	font-size: 17px;
+	border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+	
+}
+
+span.price_right {
+    text-align: right;
+	display: inline-block;
+	border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+	font-size: 17px;
+	float: right;
+}
+span.price_currency
+{
+	text-align: center!important;
+	float: right;
+}
+.singlecontent
+{
+	font-size: 15px;
+	padding: 0px;
+    margin-bottom: 13px;
+    font-size: 13px;
+    line-height: 22px;
+    float: left;
+    width: 100%;
+	border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+	color: #768082;
+	font-family: 'Open Sans',sans-serif;
 }

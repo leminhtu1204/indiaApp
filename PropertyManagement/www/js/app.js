@@ -1,5 +1,6 @@
 angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register', 'Belowval.GroupProperty',
-    'Belowval.PropertyDetail', 'Belowval.Profile', 'Belowval.Search'])
+    'Belowval.PropertyDetail', 'Belowval.Profile', 'Belowval.Search','ngCordova'])
+
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('belowval', {
