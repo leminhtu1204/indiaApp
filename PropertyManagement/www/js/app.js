@@ -1,5 +1,5 @@
 angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register', 'Belowval.GroupProperty',
-    'Belowval.PropertyDetail', 'Belowval.Profile', 'ngCordova'])
+    'Belowval.PropertyDetail', 'Belowval.Profile', 'Belowval.Search','ngCordova'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -24,6 +24,15 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                     'menuContent': {
                         controller: 'GroupPropertyController',
                         templateUrl: 'views/groupProperty/groupProperty.html'
+                    }
+                }
+            })
+            .state('belowval.search', {
+                url: '/search',
+                views: {
+                    'menuContent': {
+                        controller: 'SearchController',
+                        templateUrl: 'views/search/search.html'
                     }
                 }
             })

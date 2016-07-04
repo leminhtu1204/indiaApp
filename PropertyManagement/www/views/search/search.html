@@ -1,0 +1,41 @@
+<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="logoutbutton" ng-click="backToPrevious()"><img src="img/back.png" class="back"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="hadhead">
+        <div class="list">
+            <div class="button-bar" >
+                <label>Choose: </label>         
+                <ion-radio ng-repeat="item in typeSearch"
+                           name="type"
+                           ng-value="item.searchtype"
+                           ng-model="searchFilter.searchtype">
+                    {{ item.name }}
+                </ion-radio>
+            </div>
+            <label class="item">
+                <input type="text" placeholder="Street Name, Building or Postal Code" name="advanced_keyword" ng-model="searchFilter.searchtext">
+            </label>
+            <div class="button-bar" >
+                <label>Property Type: </label>         
+                <ion-radio ng-repeat="item in propertyTypeList"
+                           name="property"
+                           ng-value="item.propertyType"
+                           ng-model="searchFilter.propertyType">
+                    {{ item.name }}
+                </ion-radio>
+            </div>
+            <label class="item">
+                <select name="mySelect"
+                        ng-options="option.name for option in allsub.childs track by option.term_id" ng-model="searchFilter.sub1">
+                </select>
+            </label
+            <label class="item">
+                <select name="mySelect"
+                        ng-options="option.name for option in allsub.childs track by option.term_id" ng-model="searchFilter.sub1">
+                </select>
+            </label>
+        </div>
+    </ion-content>
+</ion-view>
