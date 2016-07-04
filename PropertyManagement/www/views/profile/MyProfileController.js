@@ -20,7 +20,7 @@ angular.module('Belowval.Profile', ['Belowval.LoginService'])
         }
 
         $scope.updateMyProfile = function () {
-            $scope.show("Loading..", 10000);
+            $scope.show("Updating..", 10000);
 
             console.log("Update my profile");
             var request = {};
@@ -80,18 +80,25 @@ angular.module('Belowval.Profile', ['Belowval.LoginService'])
                 uploadOptions.fileKey = 'file';
                 uploadOptions.mimeType = 'image/jpeg';
 
+                $scope.show("Uploading avatar.. ", 10000);
 
                 $cordovaFileTransfer.upload(server, imageURL, uploadOptions, true)
                     .then(function (result) {
                         // Success!
+                        $scope.hide();
                     }, function (err) {
                         // Error
+                        $scope.showAlert(err);
                     }, function (progress) {
                         // constant progress updates
+                        $timeout(function () {
+                            $scope.show("Uploading avatar.." + (progress.loaded / progress.total) * 100, 10000);
+                        })
                     });
 
             }, function (err) {
                 // error
+                $scope.showAlert(err);
             });
         };
     })
