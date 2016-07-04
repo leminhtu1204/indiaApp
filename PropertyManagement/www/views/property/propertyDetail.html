@@ -17,33 +17,50 @@
             </ion-slide>
         </ion-slide-box>
         <div class="item">
-            
-            <h2>{{ property.property_address }}</h2>
-            <h2>{{ getOnlyNumber(property.property_bathrooms) }}</h2>
-            <h2>{{ getOnlyNumber(property.property_bedrooms) }}</h2>
-            <h4>Country: {{ property.property_country }}</h4>
-            <h4>Longitude: {{ property.property_longitude }}</h4>
-            <h4>Zip: {{ property.property_zip }}</h4>
-            <h4>Price: {{ formatNumber(property.property_price) }}</h4>
-            <h4>Size: {{ formatNumber(property.property_size) }}</h4>
-            <h4>Valuation: {{ property.pfcity_view }}</h4>
-			<h4>Valuation: {{ property.pfcorner_unit }}</h4>
-			<h4>Valuation: {{ property.pfground_floor }}</h4>
-			<h4>Valuation: {{ property.pfhigh_floor }}</h4>
-			<h4>Valuation: {{ property.pflow_floor }}</h4>
-			<h4>Valuation: {{ property.pfparkgreenery_view }}</h4>
-			<h4>Valuation: {{ property.pfpenthouse }}</h4>
-			<h4>Valuation: {{ property.pfrenovated }}</h4>
-			<h4>Valuation: {{ property.pfsea_view }}</h4>
-			<h4>Valuation: {{ property.pfswimming_pool_view }}</h4>
-			<h4>Valuation: {{ property.piosbalcony }}</h4>
-			<h4>Valuation: {{ property.piosbombshelter }}</h4>
-			<h4>Valuation: {{ property.piosgarage }}</h4>
-			<h4>Valuation: {{ property.piosmaidsroom }}</h4>
-			<h4>Valuation: {{ property.piosoutdoor_patio }}</h4>
-			<h4>Valuation: {{ property.piosprivate_garden }}</h4>
-			<h4>Valuation: {{ property.piosroof_terrace }}</h4>
-			<h4>Valuation: {{ property.pioswalkin_wardrobe }}</h4>
+			<h2 class="pdetailtitle2">{{ property.post_title }}</h2>
+			<p class="text-black">
+				<span for="property_valuation" class="price_left">Valuation:</span>
+				<span class="price_right" style="width: 106px;">{{ property.property_valuation }}</span>
+				<span class="price_currency">&nbsp;$</span>
+            </p>
+			<p class="sec-color">
+				<span for="property_valuation" class="price_left">Asking Price:</span>
+				<span class="price_right" style="width: 106px;">{{ property.property_price }}</span>
+				<span class="price_currency">&nbsp;$</span>
+            </p>
+			<p class="red-color">
+				<span for="property_valuation" class="price_left">Below Valuation By:</span>
+				<span class="price_right" style="width: 106px;">{{ property.property_price }}</span>
+				<span class="price_currency">&nbsp;-$</span>
+            </p>
+			<div class="singlecontent">
+				<h2>{{ property.property_address }}</h2>
+				<h2>{{ getOnlyNumber(property.property_bathrooms) }}</h2>
+				<h2>{{ getOnlyNumber(property.property_bedrooms) }}</h2>
+				<h4>Country: {{ property.property_country }}</h4>
+				<h4>Longitude: {{ property.property_longitude }}</h4>
+				<h4>Zip: {{ property.property_zip }}</h4>
+				<h4>Price: {{ formatNumber(property.property_price) }}</h4>
+				<h4>Size: {{ formatNumber(property.property_size) }}</h4>
+				<h4>Valuation: {{ property.pfcity_view }}</h4>
+				<h4>Valuation: {{ property.pfcorner_unit }}</h4>
+				<h4>Valuation: {{ property.pfground_floor }}</h4>
+				<h4>Valuation: {{ property.pfhigh_floor }}</h4>
+				<h4>Valuation: {{ property.pflow_floor }}</h4>
+				<h4>Valuation: {{ property.pfparkgreenery_view }}</h4>
+				<h4>Valuation: {{ property.pfpenthouse }}</h4>
+				<h4>Valuation: {{ property.pfrenovated }}</h4>
+				<h4>Valuation: {{ property.pfsea_view }}</h4>
+				<h4>Valuation: {{ property.pfswimming_pool_view }}</h4>
+				<h4>Valuation: {{ property.piosbalcony }}</h4>
+				<h4>Valuation: {{ property.piosbombshelter }}</h4>
+				<h4>Valuation: {{ property.piosgarage }}</h4>
+				<h4>Valuation: {{ property.piosmaidsroom }}</h4>
+				<h4>Valuation: {{ property.piosoutdoor_patio }}</h4>
+				<h4>Valuation: {{ property.piosprivate_garden }}</h4>
+				<h4>Valuation: {{ property.piosroof_terrace }}</h4>
+				<h4>Valuation: {{ property.pioswalkin_wardrobe }}</h4>
+			</div>
         </div>
         <p ng-bind-html="property.post_content"></p>
     </ion-content>
