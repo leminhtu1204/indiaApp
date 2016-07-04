@@ -34,34 +34,127 @@
 				<span class="price_currency">&nbsp;-$</span>
             </p>
 			<div class="singlecontent">
-				<h2>{{ property.property_address }}</h2>
-				<h2>{{ getOnlyNumber(property.property_bathrooms) }}</h2>
-				<h2>{{ getOnlyNumber(property.property_bedrooms) }}</h2>
-				<h4>Country: {{ property.property_country }}</h4>
-				<h4>Longitude: {{ property.property_longitude }}</h4>
-				<h4>Zip: {{ property.property_zip }}</h4>
-				<h4>Price: {{ formatNumber(property.property_price) }}</h4>
-				<h4>Size: {{ formatNumber(property.property_size) }}</h4>
-				<h4>Valuation: {{ property.pfcity_view }}</h4>
-				<h4>Valuation: {{ property.pfcorner_unit }}</h4>
-				<h4>Valuation: {{ property.pfground_floor }}</h4>
-				<h4>Valuation: {{ property.pfhigh_floor }}</h4>
-				<h4>Valuation: {{ property.pflow_floor }}</h4>
-				<h4>Valuation: {{ property.pfparkgreenery_view }}</h4>
-				<h4>Valuation: {{ property.pfpenthouse }}</h4>
-				<h4>Valuation: {{ property.pfrenovated }}</h4>
-				<h4>Valuation: {{ property.pfsea_view }}</h4>
-				<h4>Valuation: {{ property.pfswimming_pool_view }}</h4>
-				<h4>Valuation: {{ property.piosbalcony }}</h4>
-				<h4>Valuation: {{ property.piosbombshelter }}</h4>
-				<h4>Valuation: {{ property.piosgarage }}</h4>
-				<h4>Valuation: {{ property.piosmaidsroom }}</h4>
-				<h4>Valuation: {{ property.piosoutdoor_patio }}</h4>
-				<h4>Valuation: {{ property.piosprivate_garden }}</h4>
-				<h4>Valuation: {{ property.piosroof_terrace }}</h4>
-				<h4>Valuation: {{ property.pioswalkin_wardrobe }}</h4>
+				<div class="adres">
+					<span class="adres_area">{{ property.cattext }}</span>
+					<span class="adres_area">{{ property.property_address }}, {{ property.address2 }}</span>
+				</div>
+				<div class="panel-group property-panel">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a><h4 class="panel-title">Property Details  </h4></a>
+						</div>
+						<div class="panel-collapse collapse in">
+							<div class="panel-body">
+								<div class="listing_detail">
+									<strong class="listingstrong">Address:</strong> {{ property.property_address }}
+								</div>
+								<div class="listing_detail">
+									<strong class="listingstrong">Property Size:</strong> {{ property.property_size }} sqrt
+								</div>
+								<div class="listing_detail">
+									<strong class="listingstrong">Price per sqft:</strong> {{ property.property_size }} sqrt
+								</div>
+								<div class="listing_detail">
+									<strong class="listingstrong">No. of Bedrooms:</strong> {{ property.property_bedrooms }}
+								</div>
+								<div class="listing_detail">
+									<strong class="listingstrong">No. of Bathrooms</strong> {{ property.property_bathrooms }}
+								</div>
+								<div class="listing_detail">
+									<strong class="listingstrong">Tenure:</strong> {{ property.tenure }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-group property-panel">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a><h4 class="panel-title">Property Amenities  </h4></a>
+						</div>
+						<div class="panel-collapse collapse in">
+							<div class="panel-body">
+									<!-- 	  <p class="form-header">No Property Amenities listed yet; Please contact seller to check.</p> -->
+										  <p class="form-header">Features</p>
+										  <div class="listing_detail">
+											<i class="fa fa-check"></i> Penthouse
+										  </div>
+										  <div class="listing_detail">
+											<i class="fa fa-check"></i> City View
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Renovated
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Low Floor
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>High Floor
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Corner Unit
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Park/Greenery View
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Sea View
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Swimming Pool View
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Ground Floor
+										  </div>
+										  <p class="form-header ios-header">Indoor / Outdoor Space</p>
+										  <div class="listing_detail"><i class="fa fa-check"></i>Balcony
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Roof Terrace
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Maidsroom
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Bombshelter
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Outdoor Patio
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Garage
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Private Garden
+										  </div>
+										  <div class="listing_detail">
+										  <i class="fa fa-check"></i>Walk-in Wardrobe
+										  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+				<div class="panel-group property-panel">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a><h4 class="panel-title">Description  </h4></a>
+						</div>
+						<div class="panel-collapse collapse in">
+							<div class="panel-body">
+								<h3 class="infohead mtop0">Description</h3>
+								<div>
+									<p ng-bind-html="property.post_content"></p>
+								</div>
+	
+							</div>
+						</div>
+					</div>
+				</div>
+				
 			</div>
         </div>
-        <p ng-bind-html="property.post_content"></p>
+        
     </ion-content>
 </ion-view>
