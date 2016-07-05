@@ -914,6 +914,21 @@ a.item-content
 	margin: auto;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.cpbutt
+{
+	background-color: #597423 !important;
+    border: 0px solid #fff !important;
+    border-radius: 4px !important;
+    width: 65% !important;
+    height: 40px !important;
+	min-height: 40px !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
+    margin-bottom: 5px !important;
+	margin: auto;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .formstyle
 {
 	margin-left: 25px !important;
@@ -939,6 +954,20 @@ a.item-content
 .back-button
 {
 	color: white !important;
+}
+.changepassword
+{
+	background-image: url('../img/background_clean.jpg');
+    background-size: 100% 100%;
+	font-family: 'Open Sans',sans-serif;
+}
+.contentchangepass
+{
+	background-color: transparent !important;
+}
+label.labelcp
+{
+	background-color: transparent !important;
 }
 
 
