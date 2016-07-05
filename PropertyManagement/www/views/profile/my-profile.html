@@ -5,14 +5,14 @@
         </button>
     </ion-nav-buttons>
 
-    <ion-content>
+    <ion-content class="myprofile">
         <ion-item class="item-profile profileava">
             <img ng-src="{{myProfile.wp_user_avatar}}" class="ava_full">
         </ion-item>
 
         <button class="button button-block button-positive submitbutton" ng-click="getPicture()">UPLOAD PROFILE IMAGE
         </button>
-        <form>
+        <form class="formstyle">
             <h5>First name</h5>
             <input name="firstName" ng-model="myProfile.first_name"/>
 
