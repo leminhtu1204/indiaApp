@@ -855,5 +855,39 @@ h3.infohead
 	font-family: 'Open Sans',sans-serif;
 	color: #434a54;
 }
+h1.customtitle
+{
+	font-size: 17px;
+    color: #6a82a0;
+	overflow: hidden;
+    white-space: normal !important;
+	height: 80px!important;
+	line-height: 26px !important;
+	margin-top: 7px !important;
+}
+.custombar
+{
+	display: block !important;
+	height: 70px !important;
+}
+.menucontent
+{
+	top: 70px;
+}
+.currentli {
+    background-color: #444a54 !important;
+}
+a.item-content
+{
+	background-color: transparent !important;
+	color: white !important;
+	font-family: 'Open Sans',sans-serif;
+}
+.normalmenu
+{
+	background-color: #9aa3b0;
+	color: white !important;
+	font-family: 'Open Sans',sans-serif;
+}
 
 

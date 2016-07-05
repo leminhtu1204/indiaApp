@@ -16,31 +16,25 @@
     </ion-side-menu-content>
 
     <ion-side-menu side="right">
-        <ion-header-bar class="bar-stable">
-            <h1 class="title">My Profile</h1>
+        <ion-header-bar class="bar-stable custombar">
+            <h1 class="title customtitle">Welcome back {{myProfile.user_login}}!</h1>
         </ion-header-bar>
-        <ion-content>
+        <ion-content class="menucontent">
             <ion-list>
-                <ion-item menu-close class="item-profile" href="#belowval/my-profile">
+                <ion-item menu-close class="item-profile currentli" href="#belowval/my-profile">
                     <div class="item-avatar ava_icon">
                         <img ng-src="{{myProfile.wp_user_avatar}}" class="ava_icon">
                     </div>
-                    My Profile
+                    <i class="fa fa-cog"></i> My Profile
                 </ion-item>
-                <ion-item menu-close>
-                    My Properties List
+                <ion-item menu-close class="normalmenu">
+                    <i class="fa fa-search"></i> Favorites
                 </ion-item>
-                <ion-item menu-close>
-                    Add New Property
-                </ion-item>
-                <ion-item menu-close>
-                    Favorites
-                </ion-item>
-                <ion-item menu-close>
-                    Save Searches
-                </ion-item>
-                <ion-item menu-close ng-click="showChangePasswordModal()">
-                    Change Password
+                <ion-item menu-close  class="normalmenu">
+                    <i class="fa fa-file-text-o"></i> Save Searches
+                </ion-item  class="normalmenu">
+                <ion-item menu-close ng-click="showChangePasswordModal()" class="normalmenu">
+                    <i class="fa fa-key"></i> Change Password
                 </ion-item>
             </ion-list>
         </ion-content>
