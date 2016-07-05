@@ -29,6 +29,9 @@
             </div>
             <label class="item">
                 <select name="sub1" ng-model="searchFilter.sub1">
+                    <option ng-show="typeName == 'all'" selected>All Estates / Districts</option>
+                    <option ng-show="typeName == 'hdb'" selected>All Estates</option>
+                    <option ng-show="typeName == 'private'" selected>All Districts</option>
                     <option ng-selected ="$index === 0" ng-repeat="option in sub1List" value="{{option.slug}}">{{option.name}}</option>
                 </select>
             </label>

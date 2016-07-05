@@ -2,12 +2,16 @@ angular.module('Belowval.Search', []).controller('SearchController', function ($
 
     ws_end_point = UserLogin.getWsEndPoint();
     $scope.groupData = [];
+    var all = { "name": "All Estates / Districts" };
+    var district = { "name": "All Districts" };
+    var estates = { "name": "All Districts" };
     $scope.init = function () {
         $http.post(ws_end_point, { "method": "8" }).success(function (data) {
             $scope.estate = [];
             data.all_sub.childs.forEach(function(item) {
                 $scope.estate.push(item);
             });
+            $scope.estate.push(estates);
             data.district.childs.forEach(function(item) {
                 data.all_sub.childs.push(item);
             });
