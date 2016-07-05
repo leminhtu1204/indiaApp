@@ -871,6 +871,11 @@ h1.customtitle
 	line-height: 26px !important;
 	margin-top: 7px !important;
 }
+.ng-binding
+{
+	overflow: hidden;
+	white-space: normal !important;
+}
 .custombar
 {
 	display: block !important;
