@@ -20,18 +20,18 @@
 			<h2 class="pdetailtitle2">{{ property.post_title }}</h2>
 			<p class="text-black">
 				<span for="property_valuation" class="price_left">Valuation:</span>
-				<span class="price_right" style="width: 106px;">{{ property.property_valuation }}</span>
+				<span class="price_right" style="width: 106px;">{{ formatNumber(property.property_valuation) }}</span>
 				<span class="price_currency">&nbsp;$</span>
             </p>
 			<p class="sec-color">
 				<span for="property_valuation" class="price_left">Asking Price:</span>
-				<span class="price_right" style="width: 106px;">{{ property.property_price }}</span>
+				<span class="price_right" style="width: 106px;">{{ formatNumber(property.property_price) }}</span>
 				<span class="price_currency">&nbsp;$</span>
             </p>
 			<p class="red-color">
 				<span for="property_valuation" class="price_left">Below Valuation By:</span>
 				<!-- TUUUUUUUU: Update below = property_valuation - property_price -->
-				<span class="price_right" style="width: 106px;">{{ property.property_price }}</span>
+				<span class="price_right" style="width: 106px;">{{ countBelow(property.property_valuation,  property.property_price) }}</span>
 				<span class="price_currency">&nbsp;-$</span>
             </p>
 			<div class="singlecontent">
@@ -51,11 +51,11 @@
 									<strong class="listingstrong">Address:</strong> {{ property.property_address }}
 								</div>
 								<div class="listing_detail">
-									<strong class="listingstrong">Property Size:</strong> {{ property.property_size }} sqrt
+									<strong class="listingstrong">Property Size:</strong> {{ formatNumber(property.property_size) }} sqrt
 								</div>
 								<div class="listing_detail">
 								<!-- TUUUUUUUU: ngay phía dưới update lại price per sqft= property_price chia cho property_size -->
-									<strong class="listingstrong">Price per sqft:</strong> {{ property.property_size }} sqrt
+									<strong class="listingstrong">Price per sqft:</strong> ${{ getPricePerSqrt(property.property_price, property.property_size)}}
 								</div>
 								<div class="listing_detail">
 									<strong class="listingstrong">No. of Bedrooms:</strong> {{ property.property_bedrooms }}
@@ -97,63 +97,63 @@
 						</div>
 						<div class="panel-collapse collapse in">
 							<div class="panel-body">
-									
-										  <p class="form-header">Features</p>
+							    <p class="form-header">Features</p>
 										  <!-- TUUUUUUUU: Ứng với mỗi phần listing detail phía dưới, ví dụ Penthouse, thì biến "pfpenthouse" trong propertydetail bằng 1 thì mới hiện. -->
-										  <div class="listing_detail">
-											<i class="fa fa-check"></i> Penthouse
-										  </div>
-										  <div class="listing_detail">
-											<i class="fa fa-check"></i> City View
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Renovated
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Low Floor
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>High Floor
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Corner Unit
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Park/Greenery View
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Sea View
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Swimming Pool View
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Ground Floor
-										  </div>
-										  <p class="form-header ios-header">Indoor / Outdoor Space</p>
-										  <div class="listing_detail"><i class="fa fa-check"></i>Balcony
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Roof Terrace
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Maidsroom
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Bombshelter
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Outdoor Patio
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Garage
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Private Garden
-										  </div>
-										  <div class="listing_detail">
-										  <i class="fa fa-check"></i>Walk-in Wardrobe
-										  </div>
+							    <div class="listing_detail" ng-show="property.pfpenthouse == 1">
+							        <i class="fa fa-check"></i> Penthouse
+							    </div>
+							    <div class="listing_detail" ng-show="property.pfcity_view == 1">
+							        <i class="fa fa-check"></i> City View
+							    </div>
+							    <div class="listing_detail" ng-show="property.pfrenovated == 1">
+							        <i class="fa fa-check"></i>Renovated
+							    </div>
+							    <div class="listing_detail" ng-show="property.pflow_floor == 1">
+							        <i class="fa fa-check"></i>Low Floor
+							    </div>
+							    <div class="listing_detail" ng-show="property.pfhigh_floor == 1">
+							        <i class="fa fa-check"></i>High Floor
+							    </div>
+							    <div class="listing_detail" ng-show="property.pfcorner_unit == 1">
+							        <i class="fa fa-check"></i>Corner Unit
+							    </div>
+							    <div class="listing_detail" ng-show="property.pfparkgreenery_view == 1">
+							        <i class="fa fa-check"></i>Park/Greenery View
+							    </div>
+							    <div class="listing_detail" ng-show="property.pfsea_view == 1">
+							        <i class="fa fa-check"></i>Sea View
+							    </div>
+							    <div class="listing_detail" ng-show="property.pfswimming_pool_view == 1">
+							        <i class="fa fa-check"></i>Swimming Pool View
+							    </div>
+							    <div class="listing_detail" ng-show="property.pfground_floor == 1">
+							        <i class="fa fa-check"></i>Ground Floor
+							    </div>
+							    <p class="form-header ios-header">Indoor / Outdoor Space</p>
+							    <div class="listing_detail" ng-show="property.piosbalcony == 1">
+							        <i class="fa fa-check"></i>Balcony
+							    </div>
+							    <div class="listing_detail" ng-show="property.piosroof_terrace == 1">
+							        <i class="fa fa-check"></i>Roof Terrace
+							    </div>
+							    <div class="listing_detail" ng-show="property.piosmaidsroom == 1">
+							        <i class="fa fa-check"></i>Maidsroom
+							    </div>
+							    <div class="listing_detail" ng-show="property.piosbombshelter == 1">
+							        <i class="fa fa-check"></i>Bombshelter
+							    </div>
+							    <div class="listing_detail" ng-show="property.piosoutdoor_patio == 1">
+							        <i class="fa fa-check"></i>Outdoor Patio
+							    </div>
+							    <div class="listing_detail" ng-show="property.piosgarage == 1">
+							        <i class="fa fa-check"></i>Garage
+							    </div>
+							    <div class="listing_detail" ng-show="property.piosprivate_garden == 1">
+							        <i class="fa fa-check"></i>Private Garden
+							    </div>
+							    <div class="listing_detail" ng-show="property.pioswalkin_wardrobe == 1">
+							        <i class="fa fa-check"></i>Walk-in Wardrobe
+							    </div>
 							</div>
 						</div>
 					</div>

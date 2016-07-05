@@ -31,7 +31,7 @@ angular.module('Belowval.Home', []).controller('HomeController', function (UserL
 
     $scope.formatNumber = function (x) {
         if (!!x) {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
         return 0;
