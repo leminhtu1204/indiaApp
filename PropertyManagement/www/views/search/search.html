@@ -22,18 +22,42 @@
                 <ion-radio ng-repeat="item in propertyTypeList"
                            name="property"
                            ng-value="item.propertyType"
+                            ng-click="setSubList($index)"
                            ng-model="searchFilter.propertyType">
                     {{ item.name }}
                 </ion-radio>
             </div>
             <label class="item">
-                <select name="mySelect"
-                        ng-options="option.name for option in allsub.childs track by option.term_id" ng-model="searchFilter.sub1">
+                <select name="sub1" ng-model="searchFilter.sub1">
+                    <option ng-selected ="$index === 0" ng-repeat="option in sub1List" value="{{option.slug}}">{{option.name}}</option>
                 </select>
-            </label
+            </label>
+            <label class="item" ng-show="showSub2">
+                <select name="sub2" ng-model="searchFilter.sub2">
+                     <option selected value="">All Sub-Types</option>
+                    <option ng-repeat="option in sub2List" value="{{option.slug}}">{{option.name}}</option>
+                </select>
+            </label>
+            
+            <div class="button-bar" >
+                <label>BeedRooms: </label>         
+                <ion-radio ng-repeat="item in bedType"
+                           name="bed"
+                           ng-value="item.bed"
+                           ng-model="searchFilter.bed">
+                    {{ item.name }}
+                </ion-radio>
+            </div>
+            
             <label class="item">
-                <select name="mySelect"
-                        ng-options="option.name for option in allsub.childs track by option.term_id" ng-model="searchFilter.sub1">
+                <select name="minsize" ng-model="searchFilter.minsize">
+                    <option ng-selected="$index === 0" ng-repeat="option in minSizeList" value="{{option.minsize}}">{{option.name}}</option>
+                </select>
+            </label>
+            
+            <label class="item">
+                <select name="maxprice" ng-model="searchFilter.maxprice">
+                    <option ng-selected="$index === 0" ng-repeat="option in maxPriceList" value="{{option.maxprice}}">{{option.name}}</option>
                 </select>
             </label>
         </div>
