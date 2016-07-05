@@ -30,6 +30,7 @@
             </p>
 			<p class="red-color">
 				<span for="property_valuation" class="price_left">Below Valuation By:</span>
+				<!-- TUUUUUUUU: Update below = property_valuation - property_price -->
 				<span class="price_right" style="width: 106px;">{{ property.property_price }}</span>
 				<span class="price_currency">&nbsp;-$</span>
             </p>
@@ -40,6 +41,7 @@
 				</div>
 				<div class="panel-group property-panel">
 					<div class="panel panel-default">
+						<!-- TUUUUUUUU: format number cho nguyên đống bên trong, sài dấu , để chia phần nghìn -->
 						<div class="panel-heading">
 							<a><h4 class="panel-title">Property Details  </h4></a>
 						</div>
@@ -52,6 +54,7 @@
 									<strong class="listingstrong">Property Size:</strong> {{ property.property_size }} sqrt
 								</div>
 								<div class="listing_detail">
+								<!-- TUUUUUUUU: ngay phía dưới update lại price per sqft= property_price chia cho property_size -->
 									<strong class="listingstrong">Price per sqft:</strong> {{ property.property_size }} sqrt
 								</div>
 								<div class="listing_detail">
@@ -67,6 +70,26 @@
 						</div>
 					</div>
 				</div>
+				<!-- TUUUUUUUU: Check một trong những value sau bằng 1 thì mới hiện nguyên phần div ngay phía dưới này: 
+				"pfpenthouse": "",
+				"pfcity_view": "",
+				"pfrenovated": "",
+				"pflow_floor": "",
+				"pfhigh_floor": "",
+				"pfcorner_unit": "",
+				"pfparkgreenery_view": "",
+				"pfsea_view": "",
+				"pfswimming_pool_view": "",
+				"pfground_floor": "",
+				"piosbalcony": "",
+				"piosroof_terrace": "",
+				"piosmaidsroom": "",
+				"piosbombshelter": "",
+				"piosoutdoor_patio": "",
+				"piosgarage": "",
+				"piosprivate_garden": "",
+				"pioswalkin_wardrobe": "", -->
+				
 				<div class="panel-group property-panel">
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -74,8 +97,9 @@
 						</div>
 						<div class="panel-collapse collapse in">
 							<div class="panel-body">
-									<!-- 	  <p class="form-header">No Property Amenities listed yet; Please contact seller to check.</p> -->
+									
 										  <p class="form-header">Features</p>
+										  <!-- TUUUUUUUU: Ứng với mỗi phần listing detail phía dưới, ví dụ Penthouse, thì biến "pfpenthouse" trong propertydetail bằng 1 thì mới hiện. -->
 										  <div class="listing_detail">
 											<i class="fa fa-check"></i> Penthouse
 										  </div>
