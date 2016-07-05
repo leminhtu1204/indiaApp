@@ -27,6 +27,16 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                     }
                 }
             })
+            .state('belowval.searhResult', {
+                url: '/search-detail',
+                params: { obj: null },
+                views: {
+                    'menuContent': {
+                        controller: 'GroupPropertyController',
+                        templateUrl: 'views/groupProperty/groupProperty.html'
+                    }
+                }
+            })
             .state('belowval.search', {
                 url: '/search',
                 views: {

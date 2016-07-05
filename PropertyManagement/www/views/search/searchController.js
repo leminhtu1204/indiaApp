@@ -2,16 +2,19 @@ angular.module('Belowval.Search', []).controller('SearchController', function ($
 
     ws_end_point = UserLogin.getWsEndPoint();
     $scope.groupData = [];
-    var all = { "name": "All Estates / Districts" };
-    var district = { "name": "All Districts" };
-    var estates = { "name": "All Districts" };
+    $scope.defaultItem = "All Districts";
+    $scope.defaultSub1Item = "All Sub-Types";
+
+    $scope.doSearch = function () {
+        $scope.redirect($scope.searchFilter, "searhResult");
+    };
+
     $scope.init = function () {
         $http.post(ws_end_point, { "method": "8" }).success(function (data) {
             $scope.estate = [];
             data.all_sub.childs.forEach(function(item) {
                 $scope.estate.push(item);
             });
-            $scope.estate.push(estates);
             data.district.childs.forEach(function(item) {
                 data.all_sub.childs.push(item);
             });
@@ -31,32 +34,44 @@ angular.module('Belowval.Search', []).controller('SearchController', function ($
     };
 
     $scope.setSubList = function (index) {
-        $scope.showSub2 = true;
+        $scope.showSub1 = true;
         switch (index) {
         case 0:
 //all
-            $scope.sub1List = $scope.allsub;
-            $scope.showSub2 = false;
+            $scope.sub2List = $scope.allsub;
+            $scope.showSub1 = false;
+            $scope.defaultItem = "All Estates / Districts";
             break;
         case 1:
 //hdb
-            $scope.sub2List = $scope.hdb;
-            $scope.sub1List = $scope.estate;
+            $scope.sub1List = $scope.hdb;
+            $scope.sub2List = $scope.estate;
+            $scope.defaultItem = "All Estates";
             break;
         case 2:
 // private
-            $scope.sub1List = $scope.district;
-            $scope.sub2List = $scope.private_sub;
+            $scope.sub2List = $scope.district;
+            $scope.sub1List = $scope.private_sub;
+            $scope.defaultItem = "All Districts";
             break;
         case 3:
-            $scope.sub1List = $scope.district;
-            $scope.sub2List = $scope.commercial_sub;
+            $scope.sub2List = $scope.district;
+            $scope.sub1List = $scope.commercial_sub;
+            $scope.defaultItem = "All Districts";
             break;
         default:
         }
     };
 
-    $scope.searchFilter = { "searchtype": "sale", "propertyType": "all", "sub1": "ang-mo-kio" };
+    $scope.searchFilter = {
+        "searchtype": "sale"
+        , "propertyType": "all"
+        , "sub2": "All Estates / Districts"
+        , "sub1": "All Sub-Types"
+        , "bed": "all"
+        , "maxprice": "0"
+        , "minsize": "Min. Built-In Size"
+    };
 
     $scope.typeSearch = [{ "searchtype": "sale", "name": "Urgent Sale", "checked": true }
         , { "searchtype": "rent", "name": "Urgent Rent", "checked": false }];
@@ -75,7 +90,7 @@ angular.module('Belowval.Search', []).controller('SearchController', function ($
         , { "bed": "5 Bedroom", "name": "5+" }];
 
     $scope.minSizeList =
-        [{ "minsize": "0", "name": "Min. Built-In Size" }
+        [{ "minsize": "Min. Built-In Size", "name": "Min. Built-In Size" }
             , { "minsize": "500", "name": "500 sqft (46 sqm)" }
             , { "minsize": "750", "name": "750 sqft (70 sqm)" }
             , { "minsize": "1000", "name": "1,000 sqft (93 sqm)" }
@@ -119,8 +134,8 @@ angular.module('Belowval.Search', []).controller('SearchController', function ($
         , { "bed": "4 Bedroom", "name": "4+" }
         , { "bed": "5 Bedroom", "name": "5+" }];
     
-    $scope.redirect = function (id, page) {
-        $state.go('belowval.' + page, { "id": id });
+    $scope.redirect = function (object, page) {
+        $state.go('belowval.' + page, { obj:object});
     };
 
     if (window.localStorage.getItem('profile') != undefined) {

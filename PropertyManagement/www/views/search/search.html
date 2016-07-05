@@ -27,21 +27,18 @@
                     {{ item.name }}
                 </ion-radio>
             </div>
-            <label class="item">
+            <label class="item" ng-show="showSub1">
                 <select name="sub1" ng-model="searchFilter.sub1">
-                    <option ng-show="typeName == 'all'" selected>All Estates / Districts</option>
-                    <option ng-show="typeName == 'hdb'" selected>All Estates</option>
-                    <option ng-show="typeName == 'private'" selected>All Districts</option>
-                    <option ng-selected ="$index === 0" ng-repeat="option in sub1List" value="{{option.slug}}">{{option.name}}</option>
+                     <option selected>{{defaultSub1Item}}</option>
+                    <option ng-repeat="option in sub1List" value="{{option.slug}}">{{option.name}}</option>
                 </select>
             </label>
-            <label class="item" ng-show="showSub2">
+            <label class="item">
                 <select name="sub2" ng-model="searchFilter.sub2">
-                     <option selected value="">All Sub-Types</option>
+                    <option selected>{{defaultItem}}</option>
                     <option ng-repeat="option in sub2List" value="{{option.slug}}">{{option.name}}</option>
                 </select>
             </label>
-            
             <div class="button-bar" >
                 <label>BeedRooms: </label>         
                 <ion-radio ng-repeat="item in bedType"
@@ -64,5 +61,6 @@
                 </select>
             </label>
         </div>
+        <button ng-click="doSearch()">Search</button>
     </ion-content>
 </ion-view>
