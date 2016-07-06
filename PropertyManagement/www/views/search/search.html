@@ -1,0 +1,84 @@
+<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="logoutbutton" ng-click="backToPrevious()"><img src="img/back.png" class="back"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="hadhead searchview">
+        <div class="list">
+		<div class="adv-search-header">Search</div>
+            <div class="button-bar tab_menu_container" >
+				<div class="width100">
+					<span class="search-label">Choose</span>  
+				</div>
+            </div>
+			<div class="smd">
+					<ion-radio ng-repeat="item in typeSearch"
+							   name="type"
+							   ng-value="item.searchtype"
+							   ng-model="searchFilter.searchtype" class="itemli">
+						{{ item.name }}
+					</ion-radio>
+				</div>
+            <label class="item itemspecial">
+                <input type="text" placeholder="Street Name, Building or Postal Code" name="advanced_keyword" ng-model="searchFilter.searchtext" class="textsearch">
+            </label>
+			 
+            <div class="button-bar tab_menu_container" >
+				<div class="button-bar tab_menu_container" >
+					<div class="width100">
+						<span class="search-label">Property Type:</span>  
+					</div>
+				</div>
+            </div>
+			<div class="smd">
+			<ion-radio ng-repeat="item in propertyTypeList"
+                           name="property"
+                           ng-value="item.propertyType"
+                            ng-click="setSubList($index)"
+                           ng-model="searchFilter.propertyType" class="itemli1">
+                    {{ item.name }}
+                </ion-radio>
+			</div>
+            <label class="item" ng-show="showSub1" class="label11">
+                <select name="sub1" ng-model="searchFilter.sub1" class="label11">
+                     <option selected>{{defaultSub1Item}}</option>
+                    <option ng-repeat="option in sub1List" value="{{option.slug}}">{{option.name}}</option>
+                </select>
+            </label>
+            <label class="item" class="label11">
+                <select name="sub2" ng-model="searchFilter.sub2" class="label11">
+                    <option selected>{{defaultItem}}</option>
+                    <option ng-repeat="option in sub2List" value="{{option.slug}}">{{option.name}}</option>
+                </select>
+            </label>
+            <div class="button-bar tab_menu_container" >
+				<div class="button-bar tab_menu_container" >
+					<div class="width100">
+						<span class="search-label">BeedRooms:</span>  
+					</div>
+				</div>
+            </div>
+            <div class="smd">     
+                <ion-radio ng-repeat="item in bedType"
+                           name="bed"
+                           ng-value="item.bed"
+                           ng-model="searchFilter.bed" class="itemli2">
+                    {{ item.name }}
+                </ion-radio>
+            </div>
+            
+            <label class="item">
+                <select name="minsize" ng-model="searchFilter.minsize" class="label11">
+                    <option ng-selected="$index === 0" ng-repeat="option in minSizeList" value="{{option.minsize}}">{{option.name}}</option>
+                </select>
+            </label>
+            
+            <label class="item">
+                <select name="maxprice" ng-model="searchFilter.maxprice" class="label11">
+                    <option ng-selected="$index === 0" ng-repeat="option in maxPriceList" value="{{option.maxprice}}">{{option.name}}</option>
+                </select>
+            </label>
+        </div>
+        <button ng-click="doSearch()" class="submitbutton">Search</button>
+    </ion-content>
+</ion-view>

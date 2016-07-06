@@ -8,7 +8,8 @@ angular.module('Belowval.Profile', ['Belowval.LoginService'])
         console.log('Profile module is loading ..');
     })
 
-    .controller('MyProfileController', function ($scope, $state, UserLogin, $ionicLoading, $ionicPopup, $timeout) {
+    .controller('MyProfileController', function ($scope, $state, UserLogin, $ionicLoading, $ionicPopup, $cordovaCamera
+        , $cordovaFileTransfer) {
         console.log('My Profile controller is loading ..');
 
         $scope.myProfile = JSON.parse(window.localStorage.getItem('profile')).data.user_data;
@@ -19,7 +20,7 @@ angular.module('Belowval.Profile', ['Belowval.LoginService'])
         }
 
         $scope.updateMyProfile = function () {
-            $scope.show("Loading..", 10000);
+            $scope.show("Updating..", 10000);
 
             console.log("Update my profile");
             var request = {};
@@ -51,14 +52,54 @@ angular.module('Belowval.Profile', ['Belowval.LoginService'])
             $ionicLoading.hide();
         };
 
-        $scope.showAlert = function(msg) {
+        $scope.showAlert = function (msg) {
             var alertPopup = $ionicPopup.alert({
                 title: 'Alert!!!',
                 template: msg
             });
 
-            alertPopup.then(function(res) {
+            alertPopup.then(function (res) {
                 console.log(res);
             });
         };
+
+        $scope.getPicture = function () {
+            var options = {
+                destinationType: Camera.DestinationType.FILE_URI,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                encodingType: Camera.EncodingType.JPEG,
+                mediaType: Camera.MediaType.PICTURE
+            };
+
+            $cordovaCamera.getPicture(options).then(function (imageURL) {
+                $scope.myProfile.wp_user_avatar = imageURL;
+
+                var server = 'http://underval.com/underval.com/engineermaster/api/testingupload.php';
+                var uploadOptions = new FileUploadOptions();
+                uploadOptions.fileName = $scope.myProfile.ID + ".jpg";
+                uploadOptions.fileKey = 'file';
+                uploadOptions.mimeType = 'image/jpeg';
+
+                $scope.show("Uploading avatar.. ", 10000);
+
+                $cordovaFileTransfer.upload(server, imageURL, uploadOptions, true)
+                    .then(function (result) {
+                        // Success!
+                        $scope.hide();
+                    }, function (err) {
+                        // Error
+                        $scope.showAlert(err);
+                    }, function (progress) {
+                        // constant progress updates
+                        $timeout(function () {
+                            $scope.show("Uploading avatar.." + (progress.loaded / progress.total) * 100, 10000);
+                        })
+                    });
+
+            }, function (err) {
+                // error
+                $scope.showAlert(err);
+            });
+        };
     })
+

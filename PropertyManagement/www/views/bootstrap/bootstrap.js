@@ -28,6 +28,10 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
             $scope.modal.show();
         }
 
+        $scope.goToSearch = function () {
+            $state.go('belowval.search');
+        }
+
         $scope.closeChangePasswordModal = function () {
             console.log("Close change pass modal");
             $scope.modal.hide();

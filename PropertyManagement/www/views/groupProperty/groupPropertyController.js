@@ -3,12 +3,23 @@ angular.module('Belowval.GroupProperty', []).controller('GroupPropertyController
     ws_end_point = UserLogin.getWsEndPoint();
     $scope.groupData = [];
     $scope.init = function () {
-        $http.post(ws_end_point, { "method": "7", "group_id": $stateParams.id }).success(function (data) {
-            $scope.groupData = data;
+        if ($stateParams.obj) {
+            $stateParams.obj.method = "9";
+            $http.post(ws_end_point, JSON.stringify($stateParams.obj)).success(function (data) {
+                $scope.groupData = data;
 
-        }).error(function () {
+            }).error(function () {
 
-        });
+            });
+        } else {
+            $http.post(ws_end_point, { "method": "7", "group_id": $stateParams.id }).success(function (data) {
+                $scope.groupData = data;
+
+            }).error(function () {
+
+            });
+        }
+       
     };
 
     $scope.backToPrevious = function () {
