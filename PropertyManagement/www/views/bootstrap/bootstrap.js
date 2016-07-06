@@ -3,13 +3,21 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
         console.log("Bootstrap module is loading..")
     })
 
-    .controller('BootstrapController', function ($scope, $state, $ionicModal, UserLogin) {
+    .controller('BootstrapController', function ($scope, $state, $ionicModal, UserLogin
+        , $rootScope, $ionicPlatform, $cordovaLocalNotification) {
         console.log("Loading bootstrap controller");
 
         $scope.changePassFormData = {};
         $scope.myProfile = JSON.parse(window.localStorage.getItem('profile')).data.user_data;
 
         $scope.logout = function () {
+            if (ionic.Platform.isWebView()) {
+                console.log("Toi iu VN");
+                $scope.scheduleSingleNotification();
+            } else {
+                console.log("Toi iu VT");
+            }
+
             window.localStorage.removeItem('profile');
             console.log("Logout - Remove profile");
             $state.go('login');
@@ -41,7 +49,7 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
             var profile = window.localStorage.getItem('profile');
             var userID = JSON.parse(window.localStorage.getItem('profile')).data.user_data.ID;
             console.log("Send request \"Change password\" for user id: ", userID);
-            
+
             var data = {};
             data.method = '4a';
             data.id = userID;
@@ -54,4 +62,30 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
 
             });
         }
+
+        $ionicPlatform.ready(function () {
+
+            console.log("Load ionic platform");
+
+            $scope.scheduleSingleNotification = function () {
+                console.log("Scheduler notification");
+
+                $cordovaLocalNotification.schedule({
+                    id: 1,
+                    title: 'Title here',
+                    text: 'Text here',
+                    every: 'minute',
+                    data: {
+                        customProperty: 'custom value'
+                    }
+                }).then(function (result) {
+                    // ...
+                });
+            };
+
+            $rootScope.$on('$cordovaLocalNotification:click',
+                function (event, notification, state) {
+                    // ...
+                });
+        })
     });
