@@ -17,8 +17,12 @@
         });
 
         $scope.login = function (data) {
+            var message = "";
             if (data != null) {
                 data.method = 1;
+            } else {
+                console.log("Missing data");
+                message = "Please type your user & pass!"
             }
             console.log(data);
 
@@ -59,10 +63,13 @@
                 console.log('Unable to connect service!');
 
                 $scope.hide($ionicLoading);
+                if (data != null) {
+                    message = "Unable to connect service!";
+                }
 
                 var alertPopup = $ionicPopup.alert({
                     title: 'Login failed!',
-                    template: "Unable to connect service!"
+                    template: message
                 });
 
                 $timeout(function () {
