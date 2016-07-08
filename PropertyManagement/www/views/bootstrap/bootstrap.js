@@ -3,8 +3,8 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
         console.log("Bootstrap module is loading..")
     })
 
-    .controller('BootstrapController', function ($scope, $state, $ionicModal, UserLogin
-        , $rootScope, $ionicPlatform, $cordovaLocalNotification) {
+    .controller('BootstrapController', function ($scope, $state, $ionicModal, UserLogin, $timeout
+        , $rootScope, $ionicPlatform, $cordovaLocalNotification, $ionicLoading, $ionicPopup) {
         console.log("Loading bootstrap controller");
 
         $scope.changePassFormData = {};
@@ -12,10 +12,8 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
 
         $scope.logout = function () {
             if (ionic.Platform.isWebView()) {
-                console.log("Toi iu VN");
                 $scope.scheduleSingleNotification();
             } else {
-                console.log("Toi iu VT");
             }
 
             window.localStorage.removeItem('profile');
@@ -56,10 +54,24 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
             data.oldpassword = $scope.changePassFormData.oldPassword;
             data.newpassword = $scope.changePassFormData.newPassword;
 
-            UserLogin.changePassword(data).then(function (response) {
-                $scope.closeChangePasswordModal();
-            }, function (response) {
+            $scope.showLoading("Submitting..", 60000);
 
+            UserLogin.changePassword(data).then(function (success) {
+                if (success.status == '200') {
+                    console.log("Submitting: Successfully!");
+                    $scope.showLoading("Submitting successfully!", 3000);
+
+                    $timeout(function () {
+                        $scope.closeChangePasswordModal();
+                    }, 4000);
+                } else {
+                    console.log(success.statusText)
+                    $scope.hideLoading();
+                    $scope.showAlert("Change password failed!", success.statusText);
+                }
+            }, function (error) {
+                console.log('Unable to connect service!', error);
+                $scope.showAlert("Change password failed!", "Unable to connect service!");
             });
         }
 
@@ -88,4 +100,26 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
                     // ...
                 });
         })
+
+        $scope.showLoading = function (template, duration) {
+            $ionicLoading.show({
+                template: template,
+                duration: duration
+            });
+        }
+
+        $scope.hideLoading = function () {
+            $ionicLoading.hide();
+        }
+
+        $scope.showAlert = function (title, template) {
+            var alertPopup = $ionicPopup.alert({
+                title: title,
+                template: template
+            });
+
+            $timeout(function () {
+                alertPopup.close();
+            }, 3000)
+        }
     });
