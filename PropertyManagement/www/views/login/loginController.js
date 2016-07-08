@@ -1,14 +1,15 @@
 ﻿angular.module('Belowval.Login', ['Belowval.LoginService'])
-    .run(function() {
+    .run(function () {
         console.log("Login module is loading ..")
     })
 
-    .controller('loginController', function ($ionicHistory, $scope, $state, UserLogin, $ionicPopup, $timeout, $ionicLoading) {
+    .controller('loginController', function ($ionicHistory, $scope, $state, UserLogin, $ionicPopup, $timeout
+        , $ionicLoading, $ionicModal) {
         console.log("Login controller is loading..");
 
         if (window.localStorage.getItem('profile') != undefined) {
-             console.log("Has been login")
-             $state.go('belowval.home');
+            console.log("Has been login")
+            $state.go('belowval.home');
         }
 
         $scope.$on("$ionicView.enter", function (scopes, states) {
@@ -55,11 +56,11 @@
                         alertPopup.close();
                     }, 3000)
 
-                    alertPopup.then(function() {
+                    alertPopup.then(function () {
                         $state.go("login");
                     });
                 }
-            }, function(){
+            }, function () {
                 console.log('Unable to connect service!');
 
                 $scope.hide($ionicLoading);
@@ -76,25 +77,54 @@
                     alertPopup.close();
                 }, 3000)
 
-                alertPopup.then(function() {
+                alertPopup.then(function () {
                     $state.go("login");
                 });
             });
 
         }
 
-        $scope.show = function() {
+        $scope.show = function () {
             $ionicLoading.show({
                 template: 'Checking...'
             });
         };
 
-        $scope.hide = function(){
+        $scope.hide = function () {
             $ionicLoading.hide();
         };
 
-        // Test login-service
-        // UserLogin.login();
-        // UserLogin.register();
+        // Create the forgot pass modal
+        $ionicModal.fromTemplateUrl('views/login/forgot-password.html', {
+            scope: $scope
+        }).then(function (modal) {
+            console.log("init forgot password modal");
+            $scope.modal = modal;
+        });
 
+        $scope.showForgotPasswordModal = function () {
+            console.log("show forgot pass modal");
+            $scope.modal.show();
+        }
+
+        $scope.closeForgotPasswordModal = function () {
+            console.log("Close forgot pass modal");
+            $scope.modal.hide();
+        }
+
+        $scope.submitForgotPasswordModal = function () {
+            // $scope.showWithTemplate("Sending..", 3000);
+            $scope.showWithTemplate("Successful! Please check your email to get it!", 3000);
+
+            $timeout(function () {
+                $scope.closeForgotPasswordModal()
+            }, 4000)
+        }
+
+        $scope.showWithTemplate = function (template, duration) {
+            $ionicLoading.show({
+                template: template,
+                duration: duration
+            });
+        };
     });

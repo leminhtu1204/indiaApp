@@ -27,7 +27,7 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
         $ionicModal.fromTemplateUrl('views/profile/change-password.html', {
             scope: $scope
         }).then(function (modal) {
-            console.log("init chane pass modal");
+            console.log("init change pass modal");
             $scope.modal = modal;
         });
 
