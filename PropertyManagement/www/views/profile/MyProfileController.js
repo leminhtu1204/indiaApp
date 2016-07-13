@@ -9,7 +9,7 @@ angular.module('Belowval.Profile', ['Belowval.LoginService'])
     })
 
     .controller('MyProfileController', function ($scope, $state, UserLogin, $ionicLoading, $ionicPopup, $cordovaCamera
-        , $cordovaFileTransfer) {
+        , $cordovaFileTransfer, $timeout) {
         console.log('My Profile controller is loading ..');
 
         $scope.myProfile = JSON.parse(window.localStorage.getItem('profile')).data.user_data;
