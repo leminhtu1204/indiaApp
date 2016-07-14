@@ -1,5 +1,5 @@
 angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register', 'Belowval.GroupProperty',
-    'Belowval.PropertyDetail', 'Belowval.Profile', 'Belowval.Search','ngCordova'])
+    'Belowval.PropertyDetail', 'Belowval.Profile', 'Belowval.Search', 'Belowval.Settings', 'ngCordova'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -29,7 +29,7 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
             })
             .state('belowval.searhResult', {
                 url: '/search-detail',
-                params: { obj: null },
+                params: {obj: null},
                 views: {
                     'menuContent': {
                         controller: 'GroupPropertyController',
@@ -73,6 +73,11 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                 url: '/login',
                 controller: "loginController",
                 templateUrl: 'views/login/login.html'
+            })
+            .state('settings', {
+                url: '/settings',
+                controller: "SettingsController",
+                templateUrl: 'views/settings/settings.html'
             });
         $urlRouterProvider.otherwise('/login');
     })

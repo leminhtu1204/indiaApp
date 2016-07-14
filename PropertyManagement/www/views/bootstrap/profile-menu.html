@@ -2,12 +2,12 @@
     <ion-side-menu-content>
         <ion-nav-bar class="bar-stable mainbar">
             <ion-nav-buttons side="left" ng-show="showLogOutButton">
-                <button class="logoutbutton" ng-click="logout()"> <img src="img/back.png" class="back"> </button>
+                <button class="logoutbutton" ng-click="logout()"><img src="img/back.png" class="back"></button>
             </ion-nav-buttons>
 
             <ion-nav-buttons side="right">
                 <button class="button button-icon button-clear logoutbutton" menu-toggle="right">
-					<img src="img/PROFILE_SETTINGS ICON.png" class="back">
+                    <img src="img/PROFILE_SETTINGS ICON.png" class="back">
                 </button>
             </ion-nav-buttons>
         </ion-nav-bar>
@@ -30,11 +30,15 @@
                 <ion-item menu-close class="normalmenu">
                     <i class="fa fa-search"></i> Favorites
                 </ion-item>
-                <ion-item menu-close  class="normalmenu">
+                <ion-item menu-close class="normalmenu">
                     <i class="fa fa-file-text-o"></i> Save Searches
-                </ion-item  class="normalmenu">
+                </ion-item>
                 <ion-item menu-close ng-click="showChangePasswordModal()" class="normalmenu">
                     <i class="fa fa-key"></i> Change Password
+                </ion-item>
+                <ion-item menu-close href="#settings" class="normalmenu">
+                    <i class="fa fa-key"></i>
+                    Settings
                 </ion-item>
             </ion-list>
         </ion-content>
@@ -42,14 +46,14 @@
 </ion-side-menus>
 
 <ion-footer-bar align-title="left" class="bar-assertive footerbar">
-  <div class="buttons leftfoot">
-    <button class="button footerbutton" ng-click="goToSearch()">Search</button>
-  </div>
-  <div class="buttons centerfoot" ng-click="doSomething()">
-    <button class="button footerbutton">Saved Searches</button>
-  </div>
-  <div class="buttons rightfoot notification">
-    <button class="button footerbutton">Notifications</button>
-  </div>
-  
+    <div class="buttons leftfoot">
+        <button class="button footerbutton" ng-click="goToSearch()">Search</button>
+    </div>
+    <div class="buttons centerfoot" ng-click="doSomething()">
+        <button class="button footerbutton">Saved Searches</button>
+    </div>
+    <div class="buttons rightfoot notification">
+        <button class="button footerbutton">Notifications</button>
+    </div>
+
 </ion-footer-bar>
