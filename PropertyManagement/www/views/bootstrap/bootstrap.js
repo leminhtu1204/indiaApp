@@ -17,9 +17,7 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
             }
 
             window.localStorage.removeItem('profile');
-            window.localStorage.removeItem('settings');
             console.log("Logout - Remove profile");
-            console.log("Logout - Remove settings");
             $state.go('login');
         }
 

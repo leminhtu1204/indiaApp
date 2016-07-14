@@ -9,8 +9,18 @@ angular.module('Belowval.Settings', [])
     .controller('SettingsController', function ($scope, $state) {
         console.log("Setting controller load");
 
-        $scope.notifications = {
-            checked: false
+        $scope.settings = {};
+
+        // Reload settings from local storage
+        if (window.localStorage.getItem("settings") != undefined) {
+            console.log("Load local setting");
+            $scope.settings = JSON.parse(window.localStorage.getItem("settings"));
+            console.log($scope.settings);
+        } else {
+            console.log("Load new setting");
+            $scope.settings.notifications = {
+                checked: true
+            }
         }
 
         $scope.goBack = function () {
@@ -20,13 +30,12 @@ angular.module('Belowval.Settings', [])
         
         $scope.saveSettings = function () {
             console.log("Save settings")
-            var settings = {
-                notifications: {checked: $scope.notifications.checked}
-            }
-            window.localStorage.setItem("settings", JSON.stringify(settings));
+            window.localStorage.setItem("settings", JSON.stringify($scope.settings));
             
-            if ($scope.notifications.checked) {
+            if ($scope.settings.notifications.checked) {
                 // scheduler local notifications
             }
+
+            $scope.goBack();
         }
     })
