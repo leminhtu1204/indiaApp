@@ -11,10 +11,10 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
         $scope.myProfile = JSON.parse(window.localStorage.getItem('profile')).data.user_data;
 
         $scope.logout = function () {
-            if (ionic.Platform.isWebView()) {
+           /* if (ionic.Platform.isWebView()) {
                 $scope.scheduleSingleNotification();
             } else {
-            }
+            }*/
 
             window.localStorage.removeItem('profile');
             console.log("Logout - Remove profile");
@@ -79,7 +79,7 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
 
             console.log("Load ionic platform");
 
-            $scope.scheduleSingleNotification = function () {
+/*            $scope.scheduleSingleNotification = function () {
                 console.log("Scheduler notification");
 
                 $cordovaLocalNotification.schedule({
@@ -98,7 +98,7 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
             $rootScope.$on('$cordovaLocalNotification:click',
                 function (event, notification, state) {
                     // ...
-                });
+                });*/
         })
 
         $scope.showLoading = function (template, duration) {

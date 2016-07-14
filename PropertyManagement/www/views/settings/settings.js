@@ -1,12 +1,12 @@
 /**
  * Created by TrungTrinh on 7/14/16.
  */
-angular.module('Belowval.Settings', [])
+angular.module('Belowval.Settings', ['Belowval.NotificationModule'])
     .run(function () {
         console.log("Setting module run")
     })
 
-    .controller('SettingsController', function ($scope, $state) {
+    .controller('SettingsController', function ($scope, $state, NotificationService) {
         console.log("Setting controller load");
 
         $scope.settings = {};
