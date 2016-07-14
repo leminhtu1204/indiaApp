@@ -1,8 +1,12 @@
 <ion-view>
     <ion-header-bar>
-        <h1 class="title">Settings</h1>
         <div class="buttons">
             <button class="button button-clear" ng-click="goBack()">Close</button>
+        </div>
+        <h1 class="title">Settings</h1>
+
+        <div class="buttons">
+            <button class="button button-clear button-positive" ng-click="saveSettings()">Save</button>
         </div>
     </ion-header-bar>
 
@@ -12,7 +16,7 @@
                 <i class="icon ion-android-notifications"></i>
                 Notifications
                 <label class="toggle toggle-balanced">
-                    <input type="checkbox">
+                    <input type="checkbox" ng-model="notifications.checked">
                     <div class="track">
                         <div class="handle"></div>
                     </div>
