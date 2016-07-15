@@ -74,6 +74,34 @@ angular.module('Belowval.LoginService', [])
                     })
                 },
 
+                checkNotifications: function (data) {
+                    // data = {"method": 12, "user_id": 123}
+                    console.log("request: ", data);
+                    
+                    return $http.post(ws_end_point, data).then(function (response) {
+                        // ..
+                        return response;
+                    }, function (response) {
+                        // ..
+                        return response;
+                    })
+                },
+
+                getAllNotifications: function (data) {
+                    // data = {"method": 13, "user_id": 123}
+                    console.log("request: ", data);
+
+                    return $http.post(ws_end_point, data).then(function (response) {
+                        // ..
+                        console.log("response: ", response)
+                        return response;
+                    }, function (response) {
+                        // ..
+                        console.log("response: ", response)
+                        return response;
+                    })
+                },
+
                 getWsEndPoint: function() {
                     return ws_end_point;
                 }

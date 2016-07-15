@@ -12,6 +12,14 @@
             $state.go('belowval.home');
         }
 
+
+        // TODO: Test notification
+        var data1 = {"method": 12, "user_id": 123};
+        var data2 = {"method": 13, "user_id": 123};
+        UserLogin.checkNotifications(data1);
+        UserLogin.getAllNotifications(data2);
+
+
         $scope.$on("$ionicView.enter", function (scopes, states) {
             $ionicHistory.clearHistory();
             $ionicHistory.clearCache();
