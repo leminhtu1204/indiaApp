@@ -1,10 +1,10 @@
-﻿angular.module('Belowval.Login', ['Belowval.LoginService'])
+﻿angular.module('Belowval.Login', ['Belowval.LoginService', 'Belowval.NotificationModule'])
     .run(function () {
         console.log("Login module is loading ..")
     })
 
     .controller('loginController', function ($ionicHistory, $scope, $state, UserLogin, $ionicPopup, $timeout
-        , $ionicLoading, $ionicModal) {
+        , $ionicLoading, $ionicModal, NotificationService) {
         console.log("Login controller is loading..");
 
         if (window.localStorage.getItem('profile') != undefined) {
@@ -12,15 +12,7 @@
             $state.go('belowval.home');
         }
 
-
-        // TODO: Test notification
-        var data1 = {"method": 12, "user_id": 123};
-        var data2 = {"method": 13, "user_id": 123};
-        UserLogin.checkNotifications(data1);
-        UserLogin.getAllNotifications(data2);
-
-
-        $scope.$on("$ionicView.enter", function (scopes, states) {
+        $scope.$on("$ionicView.enter", function () {
             $ionicHistory.clearHistory();
             $ionicHistory.clearCache();
         });
@@ -48,6 +40,20 @@
                     console.log("Save profile to local storage")
 
                     $scope.hide($ionicLoading);
+
+                    console.log("Check notification scheduler")
+                    var userID = JSON.parse(window.localStorage.getItem('profile')).data.user_data.ID;
+                    $scope.settings = {userID: userID};
+
+                    if (window.localStorage.getItem("settings") != undefined) {
+                    } else {
+                        // default notification is ON
+                        // create notification scheduler
+                        if (ionic.Platform.isWebView()) {
+                            console.log("Scheduler notification")
+                            NotificationService.scheduleSingleNotification(userID, null, null);
+                        }
+                    }
 
                     $state.go('belowval.home');
                 } else {

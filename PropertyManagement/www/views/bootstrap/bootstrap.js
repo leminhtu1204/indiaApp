@@ -11,10 +11,10 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
         $scope.myProfile = JSON.parse(window.localStorage.getItem('profile')).data.user_data;
 
         $scope.logout = function () {
-           /* if (ionic.Platform.isWebView()) {
-                $scope.scheduleSingleNotification();
-            } else {
-            }*/
+            /* if (ionic.Platform.isWebView()) {
+             $scope.scheduleSingleNotification();
+             } else {
+             }*/
 
             window.localStorage.removeItem('profile');
             console.log("Logout - Remove profile");
@@ -79,26 +79,43 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
 
             console.log("Load ionic platform");
 
-/*            $scope.scheduleSingleNotification = function () {
-                console.log("Scheduler notification");
+            /*            $scope.scheduleSingleNotification = function () {
+             console.log("Scheduler notification");
 
-                $cordovaLocalNotification.schedule({
-                    id: 1,
-                    title: 'Title here',
-                    text: 'Text here',
-                    every: 'minute',
-                    data: {
-                        customProperty: 'custom value'
-                    }
-                }).then(function (result) {
-                    // ...
+             $cordovaLocalNotification.schedule({
+             id: 1,
+             title: 'Title here',
+             text: 'Text here',
+             every: 'minute',
+             data: {
+             customProperty: 'custom value'
+             }
+             }).then(function (result) {
+             // ...
+             });
+             };
+
+             $rootScope.$on('$cordovaLocalNotification:click',
+             function (event, notification, state) {
+             // ...
+             });*/
+
+            $rootScope.$on('$cordovaLocalNotification:schedule',
+                function (event, notification, state) {
+                    console.log("Scheduler event");
                 });
-            };
 
-            $rootScope.$on('$cordovaLocalNotification:click',
+            $rootScope.$on('$cordovaLocalNotification:trigger',
                 function (event, notification, state) {
                     // ...
-                });*/
+                    console.log("Notification trigger event")
+                });
+
+            $rootScope.$on('$cordovaLocalNotification:cancel',
+                function (event, notification, state) {
+                    // ...
+                    console.log("Notification cancel event");
+                });
         })
 
         $scope.showLoading = function (template, duration) {
