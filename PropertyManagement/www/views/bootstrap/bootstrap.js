@@ -106,6 +106,13 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService', 'Belowval.Notific
              // ...
              });*/
 
+            $rootScope.$on('$cordovaLocalNotification:click',
+                function (event, notification, state) {
+                    // ...
+                    console.log("Call ws to check notification here!");
+                });
+
+
             $rootScope.$on('$cordovaLocalNotification:schedule',
                 function (event, notification, state) {
                     console.log("Scheduler event - " + notification.id);
