@@ -12,7 +12,7 @@ angular.module("Belowval.NotificationModule", [])
         console.log("Notification service load")
 
         this.scheduleSingleNotification = function (id, title, msg) {
-            console.log("Scheduler notification");
+            console.log("Scheduler notification - " + id);
 
             $cordovaLocalNotification.schedule({
                 id: id,
@@ -21,23 +21,23 @@ angular.module("Belowval.NotificationModule", [])
                 every: 3,
             }).then(function (result) {
                 // ...
-                console.log("Scheduler notification: ", result);
+                console.log("Scheduler notification: " + result);
             }, function (result) {
                 // ...
-                console.log("Scheduler notfication: ", result);
+                console.log("Scheduler notfication: " + result);
             });
         };
 
         this.isSchedulerSingleNotification = function (id) {
-            console.log("IsScheduler func of ", id);
+            console.log("IsScheduler func of " + id);
             $cordovaLocalNotification.isPresent(id, function (present) {
-                console.log("Is notification scheduler: ", present)
+                console.log("Is notification scheduler: " +  present)
                 return present;
             })
         };
 
         this.cancelSingleNotification = function (id) {
-            console.log("Cancel notification: ", id);
+            console.log("Cancel notification: " + id);
             $cordovaLocalNotification.cancel(id, function() {
             });
         }
@@ -52,7 +52,7 @@ angular.module("Belowval.NotificationModule", [])
         return {
             checkNotifications: function (data) {
                 // data = {"method": 12, "user_id": 123}
-                console.log("request: ", data);
+                console.log("check notification - request - " + data.user_id);
 
                 return $http.post(ws_end_point, data).then(function (response) {
                     // ..
@@ -65,15 +65,13 @@ angular.module("Belowval.NotificationModule", [])
 
             getAllNotifications: function (data) {
                 // data = {"method": 13, "user_id": 123}
-                console.log("request: ", data);
+                console.log("getAllNotification - request - ", data.user_id);
 
                 return $http.post(ws_end_point, data).then(function (response) {
                     // ..
-                    console.log("response: ", response)
                     return response;
                 }, function (response) {
                     // ..
-                    console.log("response: ", response)
                     return response;
                 })
             }

@@ -1,10 +1,10 @@
-angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
+angular.module('Belowval.Bootstrap', ['Belowval.LoginService', 'Belowval.NotificationModule'])
     .run(function () {
         console.log("Bootstrap module is loading..")
     })
 
     .controller('BootstrapController', function ($scope, $state, $ionicModal, UserLogin, $timeout
-        , $rootScope, $ionicPlatform, $cordovaLocalNotification, $ionicLoading, $ionicPopup) {
+        , $rootScope, $ionicPlatform, $cordovaLocalNotification, $ionicLoading, $ionicPopup, NotificationService) {
         console.log("Loading bootstrap controller");
 
         $scope.changePassFormData = {};
@@ -16,8 +16,14 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
              } else {
              }*/
 
+            console.log("Logout - Remove profile - " + $scope.myProfile.ID);
+
+            if (ionic.Platform.isWebView()) {
+                NotificationService.cancelSingleNotification($scope.myProfile.ID);
+            }
+
             window.localStorage.removeItem('profile');
-            console.log("Logout - Remove profile");
+
             $state.go('login');
         }
 
@@ -102,19 +108,19 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService'])
 
             $rootScope.$on('$cordovaLocalNotification:schedule',
                 function (event, notification, state) {
-                    console.log("Scheduler event");
+                    console.log("Scheduler event - " + notification.id);
                 });
 
             $rootScope.$on('$cordovaLocalNotification:trigger',
                 function (event, notification, state) {
                     // ...
-                    console.log("Notification trigger event")
+                    console.log("Notification trigger event - " + notification.id)
                 });
 
             $rootScope.$on('$cordovaLocalNotification:cancel',
                 function (event, notification, state) {
                     // ...
-                    console.log("Notification cancel event");
+                    console.log("Notification cancel event - " + notification.id);
                 });
         })
 

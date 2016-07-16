@@ -17,16 +17,15 @@ angular.module('Belowval.LoginService', [])
                      "password": "123456"
                      };*/
 
-                    console.log("login");
+                    console.log("login - request - " + user.user_login);
 
                     return $http.post(ws_end_point, user).then(function (response) {
-                        console.log(response);
                         return response;
                     });
                 },
 
                 register: function (user) {
-                    console.log("register");
+                    console.log("register - request - " + user.user_login);
 
                     /*
                      var user_sample = {
@@ -37,7 +36,6 @@ angular.module('Belowval.LoginService', [])
                      */
 
                     return $http.post(ws_end_point, user).then(function (response) {
-                        console.log(response);
                         return response;
                     });
                 },
@@ -51,25 +49,21 @@ angular.module('Belowval.LoginService', [])
                      "newpassword": "65312"};
                      */
                     
-
+                    console.log("change password - request - " + data.id)
                     return $http.post(ws_end_point, data).then(function (response) {
-                        console.log(response);
                         return response;
                     }, function (response) {
-                        console.log(response);
                         return response;
                     });
                 },
 
                 updateMyProfile: function (data) {
                     // data = {method:6, user_data: {..}}
-                    console.log("request: " + data);
+                    console.log("update profile - request - " + data.user_data.ID);
 
                     return $http.post(ws_end_point, data).then(function (response) {
-                        console.log(response);
                         return response;
                     }, function (response) {
-                        console.log(response);
                         return response;
                     })
                 },

@@ -34,23 +34,33 @@
                 console.log(response.status);
 
                 if (response.status == '200') {
-                    console.log("Login: Successfully!");
+                    console.log("Login: Successfully! - " + response.data.user_data.ID);
 
                     window.localStorage.setItem("profile", JSON.stringify(response))
                     console.log("Save profile to local storage")
 
                     $scope.hide($ionicLoading);
 
-                    console.log("Check notification scheduler")
                     var userID = JSON.parse(window.localStorage.getItem('profile')).data.user_data.ID;
                     $scope.settings = {userID: userID};
 
-                    if (window.localStorage.getItem("settings") != undefined) {
+                    console.log("Check notification scheduler - " + userID);
+
+
+                    if (window.localStorage.getItem("settings_" + userID) != undefined) {
+                        var settings = window.localStorage.getItem("settings_" + userID);
+
+                        if(userID == settings.userID && settings.notifications.checked) {
+                            if (!NotificationService.isSchedulerSingleNotification(userID)) {
+                                NotificationService.scheduleSingleNotification(userID);
+                            }
+                        }
+
                     } else {
                         // default notification is ON
                         // create notification scheduler
                         if (ionic.Platform.isWebView()) {
-                            console.log("Scheduler notification")
+                            console.log("Scheduler notification - " + userID)
                             NotificationService.scheduleSingleNotification(userID, null, null);
                         }
                     }

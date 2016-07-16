@@ -14,14 +14,14 @@ angular.module('Belowval.Settings', ['Belowval.NotificationModule'])
 
 
         // Reload settings from local storage
-        if (window.localStorage.getItem("settings") != undefined) {
-            if (userID === JSON.parse(window.localStorage.getItem("settings")).userID) {
-                console.log("Load local setting");
-                $scope.settings = JSON.parse(window.localStorage.getItem("settings"));
+        if (window.localStorage.getItem("settings_" + userID) != undefined) {
+            if (userID === JSON.parse(window.localStorage.getItem("settings_" + userID)).userID) {
+                console.log("Load local settings - " + userID);
+                $scope.settings = JSON.parse(window.localStorage.getItem("settings_" + userID));
                 console.log($scope.settings);
             }
         } else {
-            console.log("Load new setting");
+            console.log("Load new settings - " + userID);
             // default notitication is ON
             $scope.settings.notifications = {
                 checked: true
@@ -34,20 +34,20 @@ angular.module('Belowval.Settings', ['Belowval.NotificationModule'])
         }
 
         $scope.saveSettings = function () {
-            console.log("Save settings")
-            window.localStorage.setItem("settings", JSON.stringify($scope.settings));
+            console.log("Save settings - " + userID);
+            window.localStorage.setItem("settings_" + userID, JSON.stringify($scope.settings));
 
             if ($scope.settings.notifications.checked) {
                 // scheduler local notifications
                 if (ionic.Platform.isWebView()) {
-                    console.log("Create notification")
+                    console.log("Create notification - " + userID);
                     if (!NotificationService.isSchedulerSingleNotification(userID)) {
                         NotificationService.scheduleSingleNotification(userID);
                     }
                 }
             } else {
                 if (ionic.Platform.isWebView()) {
-                    console.log("Cancel notification")
+                    console.log("Cancel notification - " + userID);
                     NotificationService.cancelSingleNotification(userID);
                 }
             }
