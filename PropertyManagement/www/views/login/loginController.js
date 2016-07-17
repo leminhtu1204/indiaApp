@@ -39,6 +39,8 @@
                     window.localStorage.setItem("profile", JSON.stringify(response))
                     console.log("Save profile to local storage")
 
+                    UserLogin.getFavourites($scope.profile.data.user_data.ID);
+                    
                     $scope.hide($ionicLoading);
 
                     var userID = JSON.parse(window.localStorage.getItem('profile')).data.user_data.ID;

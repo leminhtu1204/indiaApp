@@ -2,9 +2,14 @@ angular.module('Belowval.PropertyDetail', []).controller('PropertyDetailControll
 
     ws_end_point = UserLogin.getWsEndPoint();
 
+    var userInfo = JSON.parse(window.localStorage.getItem('profile')).data.user_data;
+    var favourites = JSON.parse(window.localStorage.getItem('listFavourites'));
+    $scope.favoriteStatus = true;
+
     $scope.init = function () {
         $http.post(ws_end_point, { "method": 5, "propertyid": $stateParams.id }).success(function (data) {
             $scope.property = data;
+            getFavouriteStatus($stateParams.id);
             setTimeout(function () {
                 $ionicSlideBoxDelegate.slide(0);
                 $ionicSlideBoxDelegate.update();
@@ -14,6 +19,48 @@ angular.module('Belowval.PropertyDetail', []).controller('PropertyDetailControll
 
         });
     };
+
+    var getFavouriteStatus = function (propertyId) {
+        for (var i = 0; i < favourites.length; i++) {
+            if (favourites[i].id == propertyId ) {
+                $scope.favoriteStatus = true;
+                return;
+            }
+        }
+       
+        $scope.favoriteStatus = false;
+    }
+
+    $scope.addFavorite = function () {
+        var favoriteItem = { "method": "11a", "user_id": userInfo.ID, "propertyid": $stateParams.id }
+        $http.post(ws_end_point, JSON.stringify(favoriteItem)).success(function (data) {
+            $scope.favoriteResult = data;
+
+            if (data.results == 3) {
+                favourites.push($scope.property);
+                window.localStorage.setItem('listFavourites', JSON.stringify(favourites));
+                $scope.favoriteStatus = true;
+            }
+        }).error(function () {
+
+        });
+    }
+
+    $scope.removeFavorite = function () {
+        var favoriteItem = { "method": "11b", "user_id": userInfo.ID, "propertyid": $stateParams.id }
+        $http.post(ws_end_point, JSON.stringify(favoriteItem)).success(function (data) {
+            $scope.favoriteResult = data;
+
+            if (data.results == 3) {
+                var newFavourites = favourites.filter(function (value) { return value.ID != $stateParams.id });
+               
+                window.localStorage.setItem('listFavourites', JSON.stringify(newFavourites));
+                $scope.favoriteStatus = false;
+            }
+        }).error(function () {
+
+        });
+    }
 
     $scope.formatNumber = function (x) {
         if (!!x) {

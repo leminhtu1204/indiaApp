@@ -8,7 +8,8 @@
 			<div class="pcbaritem"><button class="button smsbutt"></button></div>
 			<div class="pcbaritem"><button class="button callbutt"></button></div>
 			<div class="pcbaritem"><button class="button mailbutt"></button></div>
-			<div class="pcbaritem"><button class="button savebutt"></button></div>
+			<div class="pcbaritem" ng-if="favoriteStatus == true"><button ng-click="removeFavorite()" class="button savebutt">Check</button></div>
+            <div class="pcbaritem" ng-if="favoriteStatus == false"><button ng-click="addFavorite()" class="button savebutt">Uncheck</button></div>
 		</div>
 		<h2 class="pdetailtitle">{{ property.post_title }}</h2>
         <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true">
