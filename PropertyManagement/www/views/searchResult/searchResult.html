@@ -1,0 +1,41 @@
+<ion-view>
+    <ion-nav-buttons side="left">
+        <button class="logoutbutton" ng-click="backToPrevious()"><img src="img/back.png" class="back"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="hadhead">
+        <div class="list">
+           <div><h3 class="grouptitle">{{groupData.description}}</h3></div>
+                <div ng-repeat="property in groupData.listproperty" class="list card my-card remove-underscore propertydetail">
+					<div class="wrapperdetail">
+					    <a ng-click="redirect({{property.id}}, 'detail')">
+					        <img class="item item-image propertyimage" ng-src="{{ property._thumbnail_id }}">
+					        <div ng-show="groupData.id == 1" class="auction_sticker red-bg">Auction (Owner's Sale)</div>
+					        <div ng-show="groupData.id != 1 && (countPercent(property.property_valuation, property.property_price)) > 0" class="auction_sticker">Below by: {{ countPercent(property.property_valuation, property.property_price) }}%</div>
+					    </a>
+					</div>
+                    <div class="item propertyitemdetail">
+						<!-- start for aunction property only(group 1)-->
+						<div class="listoverlay">
+							<div class="auction_sticker_second"  ng-show="groupData.id == 1" >Price is Only Indicative. Send Your Bid to Agent</div>
+						</div>
+						<!-- end for aunction property only(group 1)-->
+                        <h4 class="homepostitle">{{ property.post_title }}</h4>
+						<div class="property_location">
+							<span class="infoaction sale-label">Sale</span>
+							<span class="inforoom">{{ getOnlyNumber(property.property_bedrooms) }}</span>
+							<span class="infobath">{{ getOnlyNumber(property.property_bathrooms) }}</span>
+							<span class="infosize">{{ formatNumber(property.property_size) }} sqft</span>
+						</div>
+						<div class="listing_price_area">
+							<span class="listing_price_right">${{ formatNumber(property.property_price) }}</span>
+					   </div>
+					   
+                        <!-- <h4>Valuation: {{ formatNumber(property.property_valuation) }}</h4>-->
+						</div>
+                   
+					
+                </div>
+        </div>
+    </ion-content>
+</ion-view>

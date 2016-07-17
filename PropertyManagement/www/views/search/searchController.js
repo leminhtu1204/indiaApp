@@ -64,6 +64,7 @@ angular.module('Belowval.Search', []).controller('SearchController', function ($
     };
 
     $scope.searchFilter = {
+        "pageType":"search",
         "searchtype": "sale"
         , "propertyType": "all"
         , "sub2": "All Estates / Districts"
