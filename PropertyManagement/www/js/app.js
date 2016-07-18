@@ -1,5 +1,5 @@
 angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register', 'Belowval.GroupProperty',
-    'Belowval.PropertyDetail', 'Belowval.Profile','Belowval.SearchResult', 'Belowval.Search', 'Belowval.Settings', 'ngCordova'])
+    'Belowval.PropertyDetail', 'Belowval.Profile', 'Belowval.Favourite', 'Belowval.SearchResult', 'Belowval.Search', 'Belowval.Settings', 'ngCordova'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -18,6 +18,15 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
                     }
                 }
             })
+            .state('belowval.favourite', {
+                url: '/favourite',
+                views: {
+                    'menuContent': {
+                        controller: 'FavouriteController',
+                        templateUrl: 'views/favourite/favourite.html'
+                    }
+                },
+            })
             .state('belowval.groupProperty', {
                 url: '/group/:id',
                 views: {
@@ -29,7 +38,7 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
             })
             .state('belowval.searhResult', {
                 url: '/search-detail',
-                params: {obj: null},
+                params: { obj: null },
                 views: {
                     'menuContent': {
                         controller: 'SearchResultController',

@@ -49,6 +49,10 @@ angular.module('Belowval.Bootstrap', ['Belowval.LoginService', 'Belowval.Notific
             $scope.modal.hide();
         }
 
+        $scope.goToFavourite = function() {
+            $state.go('belowval.favourite');
+        };
+
         $scope.submitChangePasswordModal = function () {
             var profile = window.localStorage.getItem('profile');
             var userID = JSON.parse(window.localStorage.getItem('profile')).data.user_data.ID;
