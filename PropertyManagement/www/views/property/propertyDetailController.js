@@ -32,7 +32,7 @@ angular.module('Belowval.PropertyDetail', []).controller('PropertyDetailControll
     }
 
     $scope.addFavorite = function () {
-        var favoriteItem = { "method": "11a", "user_id": userInfo.ID, "propertyid": $stateParams.id }
+        var favoriteItem = { "method": "11a", "user_id": userInfo.ID, "propertyid": $stateParams.id };
         $http.post(ws_end_point, JSON.stringify(favoriteItem)).success(function (data) {
             $scope.favoriteResult = data;
 
@@ -52,7 +52,7 @@ angular.module('Belowval.PropertyDetail', []).controller('PropertyDetailControll
             $scope.favoriteResult = data;
 
             if (data.results == 3) {
-                var newFavourites = favourites.filter(function (value) { return value.ID != $stateParams.id });
+                var newFavourites = favourites.filter(function (value) { return value.id != $stateParams.id; });
                
                 window.localStorage.setItem('listFavourites', JSON.stringify(newFavourites));
                 $scope.favoriteStatus = false;
