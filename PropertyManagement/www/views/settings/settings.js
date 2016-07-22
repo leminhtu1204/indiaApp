@@ -1,12 +1,12 @@
 /**
  * Created by TrungTrinh on 7/14/16.
  */
-angular.module('Belowval.Settings', ['Belowval.NotificationModule'])
+angular.module('Belowval.Settings', [])
     .run(function () {
         console.log("Setting module run")
     })
 
-    .controller('SettingsController', function ($scope, $state, NotificationService) {
+    .controller('SettingsController', function ($scope, $state) {
         console.log("Setting controller load");
 
         var userID = JSON.parse(window.localStorage.getItem('profile')).data.user_data.ID;
@@ -36,22 +36,6 @@ angular.module('Belowval.Settings', ['Belowval.NotificationModule'])
         $scope.saveSettings = function () {
             console.log("Save settings - " + userID);
             window.localStorage.setItem("settings_" + userID, JSON.stringify($scope.settings));
-
-            if ($scope.settings.notifications.checked) {
-                // scheduler local notifications
-                if (ionic.Platform.isWebView()) {
-                    console.log("Create notification - " + userID);
-                    if (!NotificationService.isSchedulerSingleNotification(userID)) {
-                        NotificationService.scheduleSingleNotification(userID);
-                    }
-                }
-            } else {
-                if (ionic.Platform.isWebView()) {
-                    console.log("Cancel notification - " + userID);
-                    NotificationService.cancelSingleNotification(userID);
-                }
-            }
-
             $scope.goBack();
         }
     })

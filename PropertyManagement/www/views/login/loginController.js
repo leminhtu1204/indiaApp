@@ -1,10 +1,10 @@
-﻿angular.module('Belowval.Login', ['Belowval.LoginService', 'Belowval.NotificationModule'])
+﻿angular.module('Belowval.Login', ['Belowval.LoginService'])
     .run(function () {
         console.log("Login module is loading ..")
     })
 
     .controller('loginController', function ($ionicHistory, $scope, $state, UserLogin, $ionicPopup, $timeout
-        , $ionicLoading, $ionicModal, NotificationService) {
+        , $ionicLoading, $ionicModal) {
         console.log("Login controller is loading..");
 
         if (window.localStorage.getItem('profile') != undefined) {
@@ -46,25 +46,9 @@
                     var userID = JSON.parse(window.localStorage.getItem('profile')).data.user_data.ID;
                     $scope.settings = {userID: userID};
 
-                    console.log("Check notification scheduler - " + userID);
-
-
                     if (window.localStorage.getItem("settings_" + userID) != undefined) {
                         var settings = window.localStorage.getItem("settings_" + userID);
-
-                        if(userID == settings.userID && settings.notifications.checked) {
-                            if (!NotificationService.isSchedulerSingleNotification(userID)) {
-                                NotificationService.scheduleSingleNotification(userID);
-                            }
-                        }
-
                     } else {
-                        // default notification is ON
-                        // create notification scheduler
-                        if (ionic.Platform.isWebView()) {
-                            console.log("Scheduler notification - " + userID)
-                            NotificationService.scheduleSingleNotification(userID, null, null);
-                        }
                     }
 
                     $state.go('belowval.home');
