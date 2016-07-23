@@ -13,4 +13,7 @@ http://docs.ionic.io/v1.0/docs/push-from-scratch
 ionic config set dev_push false 
 
 # Send a push notification
-curl -X POST -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJmZTIwYWMxZi1kMGZkLTRkMzMtODZjYS05ZGEzOWI4MTI0NDgifQ.Gp6GzfNartXzeAym0XW_8q5ruUykHMKqWMY8xHFZyrg" -H "Content-Type: application/json" -d '{ "tokens": ["DEV_DEVICE_TOKEN"], "profile": "test_profile", "notification": { "message": "Hello World!" } }' "https://api.ionic.io/push/notifications"
+curl -X POST -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxNmYwYjA1Ny04NmVhLTQyMjgtOTk5MS1hNGViZWQ2ZjlhOWIifQ.UrM0BQ47D_lWJeYLXKuINUuhpqUsgv2dnaG3dRzH46s" -H "Content-Type: application/json" -d '{ "tokens": ["DEV_DEVICE_TOKEN"], "profile": "belowval_profile_dev", "notification": { "message": "Hello World!" } }' "https://api.ionic.io/push/notifications"
+
+# Cordova plugins
+1. cordova plugin list
