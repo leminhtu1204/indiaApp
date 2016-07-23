@@ -1,4 +1,4 @@
-angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register', 'Belowval.GroupProperty',
+angular.module('Belowval', ['ionic', 'ionic.service.core', 'Belowval.Bootstrap', 'Belowval.Login', 'Belowval.Home', 'Belowval.Register', 'Belowval.GroupProperty',
     'Belowval.PropertyDetail', 'Belowval.Profile', 'Belowval.Favourite', 'Belowval.SearchResult', 'Belowval.Search', 'Belowval.Settings', 'ngCordova'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
@@ -38,7 +38,7 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
             })
             .state('belowval.searhResult', {
                 url: '/search-detail',
-                params: { obj: null },
+                params: {obj: null},
                 views: {
                     'menuContent': {
                         controller: 'SearchResultController',
@@ -99,5 +99,17 @@ angular.module('Belowval', ['ionic', 'Belowval.Bootstrap', 'Belowval.Login', 'Be
             if (window.StatusBar) {
                 StatusBar.styleDefault();
             }
+
+            var push = new Ionic.Push({
+                "onNotification": function (notification) {
+                    alert('Received push notification!');
+                }
+            });
+
+            push.register(function (token) {
+                console.log("Device token:", token.token);
+                push.saveToken(token);  // persist the token in the Ionic Platform
+                alert("Device token: " + token);
+            });
         });
     })
